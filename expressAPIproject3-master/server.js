@@ -3,7 +3,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const session = require('express-session')
+const session = require('express-session');
+
+
 
 
 //DATABASE
@@ -28,11 +30,13 @@ app.use(cors(corsOptions));
 //CONTROLLERS
 const authController = require('./controllers/authController');
 const mainController = require('./controllers/mainController');
+const spotifyController = require('./controllers/spotifyController');
 
 
 //ROUTES
 app.use('/auth/login', authController);
-app.use('/api/v1/main', mainController )
+app.use('/api/v1/main', mainController );
+app.use('/spotify', spotifyController);
 
 //PORT
 app.listen(9000, () => {
