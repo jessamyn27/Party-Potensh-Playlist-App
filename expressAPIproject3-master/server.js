@@ -9,9 +9,9 @@ const session = require('express-session')
 //DATABASE
 require('./db/db');
 
-//SESSIONS
+// SESSIONS
 app.use(session({
-  secret: cantTellYou,
+  secret: 'cantTellYou',
   resave: false,
   saveUninitialized: false,
 }))
