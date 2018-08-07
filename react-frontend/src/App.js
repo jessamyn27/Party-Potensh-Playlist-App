@@ -10,11 +10,14 @@ import CreateParty from './CreateParty';
 import Register from './Register';
 import Nav from './Nav';
 import Maincontainer from './Maincontainer';
+import Spotify from './Spotify'
+
 
 
 class App extends Component {
   render() {
     return (
+      <div>
       <main>
       <Nav/>
       <Maincontainer/>
@@ -35,6 +38,13 @@ class App extends Component {
         <CreateParty />
  */
 
+
+
+        
+        <Spotify/>
+
+      </div>
+     
 
     );
   }
