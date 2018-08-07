@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Route, Switch} from 'react-router-dom';
+import Login from './Login';
+import Profile from './Profile';
+
+
 import './App.css';
 import Login from './Login';
 import About from './About';
@@ -13,6 +17,12 @@ import Profile from './';
 class App extends Component {
   render() {
     return (
+      <main>
+      <Switch>
+        <Route exact path='/' component={Login}/>
+        <Route exact path='/profile' component={Profile}/>
+      </Switch>
+    </main>
       <div className="App">
         {/* <Login /> */}
         <About />
@@ -23,6 +33,7 @@ class App extends Component {
         {/* <Profile /> */}
 
       </div>
+
     );
   }
 }
