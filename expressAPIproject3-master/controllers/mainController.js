@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 
     res.json({
       status: 200,
-      data: createParty
+      data: createdParty
     });
 
   } catch(err){

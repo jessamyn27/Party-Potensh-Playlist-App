@@ -10,10 +10,9 @@ const Parties = (props) => {
         <small>{party.location}</small>
         <small>{party.zip}</small>
         <small>{party.information}</small>
-
-        {/* <button onClick={props.deleteParty.bind(null,party._id)}>Delete</button>
+        <button onClick={props.deleteParty.bind(null,party._id)}>Delete</button>
         <button
-          onClick={props.showModal.bind(null,party._id)}>Edit</button> */}
+          onClick={props.showModal.bind(null,party._id)}>Edit</button>
       </li>
       )
   });

@@ -8,16 +8,16 @@ class MainContainer extends Component {
     super();
     this.state = {
       parties:[],
-      // showEdit:[],
-      // editPartyId: null,
-      // partyToEdit:{
-      //   name:'',
-      //   date:'',
-      //   location:'',
-      //   zip:'',
-      //   information:''
-      //
-      //     }
+      showEdit: false,
+      editPartyId: null,
+      partyToEdit:{
+        name:'',
+        date:'',
+        location:'',
+        zip:'',
+        information:''
+
+          }
     }
   }
 
@@ -58,124 +58,95 @@ class MainContainer extends Component {
       }
 
     }
-    // deleteMovie = async (id, e) => {
-    //   e.preventDefault();
-    //   console.log('deleteMoive function is being called, this is the id: ', id);
-    //
-    //   try {
-    //
-    //     const deleteMovie = await fetch('http://localhost:9000/api/v1/movies/' + id, {
-    //       method: 'DELETE'
-    //       credentials: 'include',
-    //
-    //     });
-    //
-    //     const parsedResponse = await deleteMovie.json();
-    //
-    //     // filter returns a brand a new array based on some condition
-    //     // does movie._id
-    //     if(parsedResponse.status === 200){
-    //       this.setState({movies: this.state.movies.filter((movie, i) => movie._id !== id)});
-    //     } else {
-    //       // leave some message there was a problem
-    //     }
-    //   }catch(err){
-    //     console.log(err);
-    //   }
-    //
-    //   // MAke this function work by making a delete call, Look up fetch delete
-    //
-    //   // then setState after you get your response
-    // }
-    // showModal = (id) => {
-    //
-    //   // find method returns the object that meets the condition,
-    //   // and so the movieToEdit variable will contain the movie want to edit (the actual)
-    //   // object
-    //   const movieToEdit = this.state.movies.find((movie) => movie._id === id);
-    //
-    //
-    //   this.setState({
-    //     showEdit: true,
-    //     editMovieId: id,
-    //     movieToEdit: movieToEdit
-    //   });
-    //
-    // }
-    // closeAndEdit = async (e) => {
-    //    e.preventDefault();
-    //
-    //    // Try to make the fetch put call
-    //    try {
-    //
-    //     const editMovie = await fetch('http://localhost:9000/api/v1/movies/' + this.state.editMovieId, {
-    //       method: 'PUT',
-    //       credentials: 'include',
-    //
-    //       body: JSON.stringify(this.state.movieToEdit),
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       }
-    //     });
-    //
-    //
-    //     const parsedResponse = await editMovie.json();
-    //
-    //     // Functional and immutable way of accomplishing this task
-    //     const editedMovieArray = this.state.movies.map((movie) => {
-    //
-    //       if(movie._id === this.state.editMovieId){
-    //
-    //         movie.title = parsedResponse.data.title;
-    //         movie.description = parsedResponse.data.description
-    //
-    //       }
-    //
-    //       return movie
-    //     });
-    //
-    //     this.setState({
-    //       movies: editedMovieArray,
-    //       showEdit: false
-    //     });
-    //
-    //
-    //
-    //    } catch(err) {
-    //     console.log(err)
-    //    }
-    //
-    //    // after you get the updated OBject returned from your api
-    //    // set you State
-    //
-    // }
-    // handleFormChange = (e) => {
-    //
-    //   // const state = this.state;
-    //   // state.movieToEdit[e.target.name] = e.target.value;
-    //   // this.setState(state);
-    //
-    //
-    //   // Spread operator
-    //   this.setState({
-    //     movieToEdit: {
-    //       ...this.state.movieToEdit,
-    //       [e.target.name]: e.target.value
-    //     }
-    //   });
-    // }
+
+    deleteParty = async (id, e) => {
+      e.preventDefault();
+      console.log('deleteParty function is being called, this is the id: ', id);
+
+      try {
+        const deleteParty = await fetch('http://localhost:9000/api/v1/main/' + id, {
+          method: 'DELETE',
+          credentials: 'include',
+        });
+
+        const parsedResponse = await deleteParty.json();
+        console.log(parsedResponse,'this is parsedResponse');
+        if(parsedResponse.status === 200){
+          this.setState({parties: this.state.parties.filter((party, i) => party._id !== id)})
+        }
+      } catch(err){
+        console.log(err);
+      }
+    }
+
+
+    showModal = (id) => {
+      const partyToEdit = this.state.parties.find((party) => party._id === id);
+      this.setState({
+        showEdit: true,
+        editPartyId: id,
+        partyToEdit: partyToEdit
+      });
+
+    }
+    closeAndEdit = async (e) => {
+       e.preventDefault();
+       try {
+        const editParty = await fetch('http://localhost:9000/api/v1/main/' + this.state.editPartyId, {
+          method: 'PUT',
+          credentials: 'include',
+          body: JSON.stringify(this.state.partyToEdit),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        const parsedResponse = await editParty.json();
+        const editedPartyArray = this.state.parties.map((party) => {
+
+          if(party._id === this.state.editPartyId){
+
+            party.name = parsedResponse.data.name;
+            party.date = parsedResponse.data.date;
+            party.location = parsedResponse.data.location;
+            party.zip = parsedResponse.data.zip;
+            party.information = parsedResponse.data.information;
+
+          }
+
+          return party
+        });
+
+        this.setState({
+          parties: editedPartyArray,
+          showEdit: false
+        });
+
+       } catch(err) {
+        console.log(err)
+       }
+
+    }
+    handleFormChange = (e) => {
+      this.setState({
+        partyToEdit: {
+          ...this.state.partyToEdit,
+          [e.target.name]: e.target.value
+        }
+      });
+    }
     render(){
       console.log(this.state,'this is the state for maincontainer');
       return (
         <div>
-           <Parties parties={this.state.parties} />
-          <CreateParty addParty={this.addParty} />
-
-          {/* {this.state.showEdit ? <EditMovie closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} movieToEdit={this.state.movieToEdit}/> : null} */}
+           <Parties parties={this.state.parties} deleteParty={this.deleteParty}
+           showModal={this.showModal}/>
+          <CreateParty addParty={this.addParty}/>
+          {this.state.showEdit ? <Edit closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} partyToEdit={this.state.partyToEdit}/> : null}
         </div>
       )
     }
-  }
+}
 
 
   export default MainContainer;
