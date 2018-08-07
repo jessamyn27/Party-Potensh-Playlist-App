@@ -12,11 +12,15 @@ const Edit = (props) =>  {
         </label>
 
         <label>
-          <input type="text" name="date" onChange={props.handleFormChange} value={props.partyToEdit.date}/>
+          <input type="date" name="date" onChange={props.handleFormChange} value={props.partyToEdit.date}/>
         </label>
 
         <label>
           <input type="text" name="location" onChange={props.handleFormChange} value={props.partyToEdit.location}/>
+        </label>
+
+        <label>
+          <input type="text" name="zip" onChange={props.handleFormChange} value={props.partyToEdit.date}/>
         </label>
 
         <label>

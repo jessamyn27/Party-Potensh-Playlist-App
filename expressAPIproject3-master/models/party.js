@@ -5,6 +5,7 @@ const PartySchema = new mongoose.Schema({
   name: String,
   date: Date,
   location: String,
+  zip: String, 
   information: String
 })
 
