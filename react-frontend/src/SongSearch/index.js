@@ -38,15 +38,14 @@ searchHandler = async(e) => {
 
 
         const artistName = track.artists[0].name; //variable for your data rep.
-        // const songName = track
+        const songName = track.name;
 
 
 //searchRender is getting all this data. THEN you will actually render this out on the last return. This return is for the mapped data. This is the new array.
 
         return (
           <div>
-            <h3> {artistName} </h3>
-            {/* <h3> {songName} </h3> */}
+            <h3> {songName} by {artistName} </h3>
           </div>
         )
 
