@@ -23,16 +23,16 @@ class App extends Component {
         <Route exact path='/profile' component={Profile}/>
       </Switch>
     </main>
-      <div className="App">
+      {/* <div className="App">
         {/* <Login /> */}
-        <About />
+        // <About />
         {/* <Edit /> */}
         {/* <Parties /> */}
         {/* <CreateParty /> */}
-        <Register />
+        // <Register />
         {/* <Profile /> */}
 
-      </div>
+      </div> */}
 
     );
   }
