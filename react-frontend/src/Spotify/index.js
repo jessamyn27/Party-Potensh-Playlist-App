@@ -34,9 +34,11 @@ class Spotify extends Component {
     fetch('https://api.spotify.com/v1/me/playlists', {
       headers: {'Authorization': 'Bearer ' + accessToken, "Accept": "application/json","Content-Type": "application/json"
     }
-    }).then(response =>  response.json())
+    }).then(response => response.json())
+  
     .then(data => this.setState({
-      playlists: data.items.map(item => {
+      // console.log(state, 'this is state');
+      playlists: data.items.map((item) => {
         console.log(data, 'data in playlist')
         return {
           name: item.name,

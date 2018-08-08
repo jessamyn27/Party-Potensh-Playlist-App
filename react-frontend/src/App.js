@@ -36,7 +36,7 @@ class App extends Component {
         {/* <Profile /> */}
         <Spotify/>
 
-      </div> */}
+      </div> 
     );
   }
 }
