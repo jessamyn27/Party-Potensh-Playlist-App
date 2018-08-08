@@ -59,7 +59,6 @@ searchHandler = async(e) => {
         )
 
       })
-      // })
 
       console.log(searchRender, ' this is searchRender');
 
