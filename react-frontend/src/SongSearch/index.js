@@ -39,6 +39,9 @@ searchHandler = async(e) => {
 
         const artistName = track.artists[0].name; //variable for your data rep.
         const songName = track.name;
+        const link = track.href;  //href not external link.
+
+        //how to add button that reads the link and adds it to the playlist.
 
 
 //searchRender is getting all this data. THEN you will actually render this out on the last return. This return is for the mapped data. This is the new array.
@@ -46,6 +49,9 @@ searchHandler = async(e) => {
         return (
           <div>
             <h3> {songName} by {artistName} </h3>
+            <form>
+              <input type='submit' value='add'/>
+            </form>
           </div>
         )
 
