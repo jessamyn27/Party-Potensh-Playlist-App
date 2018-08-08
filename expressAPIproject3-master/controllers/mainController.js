@@ -7,7 +7,7 @@ const Party = require('../models/party'); //the model is capitalized & is a repr
  router.get('/', async (req, res, next) => {
   console.log(req.session, ' this is get all')
      try  {
-      const allMovies = await Party.find();
+      const allParties = await Party.find();
 
       res.json({
         status: 200,
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 
     res.json({
       status: 200,
-      data: createParty
+      data: createdParty
     });
 
   } catch(err){
@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res, next) => {
      try  {
 
-        const foundMovie = await Party.findById(req.params.id);
+        const foundParty = await Party.findById(req.params.id);
         res.json({
         status: 200,
         data: getParty
