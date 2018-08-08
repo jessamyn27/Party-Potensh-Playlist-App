@@ -23,7 +23,7 @@ searchHandler = async(e) => {
   const track = this.state.searchTrackName === '' ? '' : `track:${this.state.searchTrackName}`;
   console.log(track, 'this is the track vari');
   //artist:${this.state.searchArtistName}
-  const searchData = await fetch(`https://api.spotify.com/v1/search?q=${track} ${artist}&type=track`, {
+  const searchData = await fetch(`https://api.spotify.com/v1/search?q=${track} ${artist}&type=track&limit=10`, {
     headers: {'Authorization': 'Bearer ' + this.props.access_token, "Accept": "application/json","Content-Type": "application/json"
   }
   })
@@ -40,9 +40,11 @@ searchHandler = async(e) => {
         // console.log(track);
 
         const artistName = track.artists[0].name; //variable for your data rep.
-        // const songName = track.name[0];
         const songName = track.name;
-        // console.log(track.name);
+        const link = track.uri;  //href not external link.
+        const image = track.album.images[2].url;
+        console.log(track.album.images[2]);
+        //how to add button that reads the link and adds it to the playlist.
 
 
 //searchRender is getting all this data. THEN you will actually render this out on the last return. This return is for the mapped data. This is the new array.
@@ -50,14 +52,15 @@ searchHandler = async(e) => {
         return (
           <div>
             <h3> {songName} by {artistName} </h3>
+            <img src={image} className="spotifyImg" />
 
+            <form>
+              <input type='submit' value='add to playlist'/>
+            </form>
           </div>
         )
 
       })
-      }
-
-      // console.log(searchRender, ' this is searchRender');
 
 
 
@@ -71,7 +74,7 @@ searchHandler = async(e) => {
         <input type='submit' value='find'/>
         </form>
 
-        {/* {searchRender} */}
+        {searchRender}
 
     </div>
     )
