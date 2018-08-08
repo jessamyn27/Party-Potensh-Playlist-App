@@ -8,21 +8,38 @@ class Register extends Component{
       password:''
     }
   }
-  updateRegister = (e) => {
-    this.setState({[e.currentTarget.name]:e.currentTarget.value});
+  handleSubmit = async (e) => {
+    e.preventDefault();
+const registerResponse = await fetch('http://localhost:9000/auth/register', {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify(this.state),
+      headers:{
+        'Content-Type': 'application/json'
+        }
+    });
+
+    const parsedResponse = await registerResponse.json();
+
+    if(parsedResponse.data = 'register successful'){
+      this.props.history.push('/profile');
+    }
+}
+  handleChange = (e) => {
+    this.setState({[e.target.name]:e.target.value});
   }
   render() {
+    console.log('this is the props for register',this.props);
     return(
       <div>
-      <form >
-        {/* // onSubmit={this.props.addRegister.bind(null, this.state)}> */}
+      <form onSubmit={this.handleSubmit}>
         <label>
-          Create A Username:
-          <input type='text' name='username' placeholder='username' onChange={this.updateRegister}/>
+          Username:
+          <input type='text' name='username' placeholder='username' onChange={this.handleChange}/>
         </label>
         <label>
-          Create A Password:
-          <input type='password' name='password' placeholder='password' onChange={this.updateRegister}/>
+          Password:
+          <input type='password' name='password' placeholder='password' onChange={this.handleChange}/>
         </label>
         <input type='Submit' value='Register'/>
       </form>
