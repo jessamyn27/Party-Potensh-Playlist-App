@@ -39,8 +39,9 @@ searchHandler = async(e) => {
 
         const artistName = track.artists[0].name; //variable for your data rep.
         const songName = track.name;
-        const link = track.href;  //href not external link.
-
+        const link = track.uri;  //href not external link.
+        const image = track.album.images[2].url;
+        console.log(track.album.images[2]);
         //how to add button that reads the link and adds it to the playlist.
 
 
@@ -49,8 +50,10 @@ searchHandler = async(e) => {
         return (
           <div>
             <h3> {songName} by {artistName} </h3>
+            <img src={image} className="spotifyImg" />
+
             <form>
-              <input type='submit' value='add'/>
+              <input type='submit' value='add to playlist'/>
             </form>
           </div>
         )
