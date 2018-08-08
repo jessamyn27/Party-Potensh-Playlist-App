@@ -50,27 +50,28 @@ searchHandler = async(e) => {
         return (
           <div>
             <h3> {songName} by {artistName} </h3>
-            {/* <h3> {songName} </h3> */}
+
           </div>
         )
 
       })
-      // })
+      }
 
       // console.log(searchRender, ' this is searchRender');
 
 
 
-//searchRender is the new array from map.
+    render(){
+
     return (
     <div>
-       <form onSubmit={this.searchHandler}>
-        <input type='text' name='searchTrackName' placeholder='Search Song Name' value={this.state.searchTrackName} onChange={this.songSearchHandler}/>
-        <input type='text' name='searchArtistName' placeholder='Search Artist' value={this.state.searchArtistName} onChange={this.songSearchHandler}/>
+       <form onSubmit={this.props.searchHandler}>
+        <input type='text' name='searchTrackName' placeholder='Search Song Name' value={this.props.searchTrackName} onChange={this.props.textInputHandler}/>
+        <input type='text' name='searchArtistName' placeholder='Search Artist' value={this.props.searchArtistName} onChange={this.props.textInputHandler}/>
         <input type='submit' value='find'/>
         </form>
 
-        {searchRender}
+        {/* {searchRender} */}
 
     </div>
     )

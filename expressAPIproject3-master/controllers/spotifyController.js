@@ -4,8 +4,8 @@ let request = require('request');
 let querystring = require('querystring');
 
 
-let redirect_uri = 
-  process.env.REDIRECT_URI || 
+let redirect_uri =
+  process.env.REDIRECT_URI ||
   'http://localhost:9000/spotify/callback'
 
 router.get('/login', function(req, res) {

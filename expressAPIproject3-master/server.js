@@ -36,7 +36,7 @@ const spotifyController = require('./controllers/spotifyController');
 
 
 //ROUTES
-app.use('/auth/login', authController);
+app.use('/auth', authController);
 app.use('/api/v1/main', mainController );
 app.use('/spotify', spotifyController);
 
