@@ -11,10 +11,12 @@ import Register from './Register';
 import Nav from './Nav';
 import Maincontainer from './Maincontainer';
 import Logout from './Logout';
+import Spotify from './Spotify'
 
 class App extends Component {
   render() {
     return (
+      <div>
       <main>
       <Nav/>
       <Maincontainer/>
@@ -26,17 +28,17 @@ class App extends Component {
       </Switch>
     </main>
 
-        /* <Login />
-        <About />
-        <Edit />
-<Parties />
-        <CreateParty />
-        <Register />
-        <Profile />
-        <CreateParty />
- */
+      {/* <div className="App"> */}
+        {/* <Login /> */}
+         {/* <About /> */}
+        {/* <Edit /> */}
+        {/* <Parties /> */}
+        {/* <CreateParty /> */}
+         {/* <Register /> */}
+        {/* <Profile /> */}
+        <Spotify/>
 
-
+      </div>
     );
   }
 }
