@@ -38,7 +38,7 @@ class Spotify extends Component {
     console.log(track, 'this is the track vari');
     //artist:${this.state.searchArtistName}
     const searchData = await fetch(`https://api.spotify.com/v1/search?q=${track} ${artist}&type=track`, {
-      headers: {'Authorization': 'Bearer ' + this.props.access_token, "Accept": "application/json","Content-Type": "application/json"
+      headers: {'Authorization': 'Bearer ' + this.state.access_token, "Accept": "application/json","Content-Type": "application/json"
     }
     })
     const searchJson = await searchData.json();

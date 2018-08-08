@@ -26,17 +26,17 @@ class App extends Component {
       </Switch>
     </main>
 
-      {/* <div className="App">
+      {/* <div className="App"> */}
         {/* <Login /> */}
-        // <About />
+         {/* <About /> */}
         {/* <Edit /> */}
         {/* <Parties /> */}
         {/* <CreateParty /> */}
-        // <Register />
+         {/* <Register /> */}
         {/* <Profile /> */}
         <Spotify/>
 
-      </div> */}
+      </div>
     );
   }
 }

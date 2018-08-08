@@ -12,7 +12,7 @@ class SearchForSong extends Component {
         <input type='submit' value='find'/>
         </form>
 
-        {searchRender}
+        {/* {searchRender} */}
 
     </div>
     )
