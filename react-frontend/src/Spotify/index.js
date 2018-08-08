@@ -42,17 +42,17 @@ class Spotify extends Component {
           name: item.name,
           imageUrl: item.images.map((item)=>{
             return item;
-          }), 
+          }),
           songs: []
         }
     })
     })
   )
 
-  } 
+  }
   render() {
 
-    // *** THIS IS PRACTIVE API MANGLING 
+    // *** THIS IS PRACTIVE API MANGLING FOR IMAGES
     // console.log(this.state, 'this is the state')
     // const playlists = this.state.playlists.map((item)=> {
     //   console.log(item.imageUrl[0], 'this is an item')
@@ -63,6 +63,7 @@ class Spotify extends Component {
     //  })
     // })
     // console.log(playlists);
+
     console.log(this.state, 'this state')
     return (
     <div>
