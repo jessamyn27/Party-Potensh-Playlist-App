@@ -7,6 +7,7 @@ class SearchForSong extends Component {
     this.state = {
       searchTrackName: '',
       searchArtistName: '',
+      searchResults: [],
     }
   }
 
@@ -27,9 +28,36 @@ searchHandler = async(e) => {
   }
   })
   const searchJson = await searchData.json();
-  console.log(searchJson);
+  this.setState({ searchResults: searchJson.tracks.items })
 }
   render(){
+    const searchRender = this.state.searchResults.map((track, index) => {
+      console.log(track);
+        // console.log(track.artists[0].name);
+        // console.log(track.song[0].name);
+
+
+        const artistName = track.artists[0].name; //variable for your data rep.
+        // const songName = track
+
+
+//searchRender is getting all this data. THEN you will actually render this out on the last return. This return is for the mapped data. This is the new array.
+
+        return (
+          <div>
+            <h3> {artistName} </h3>
+            {/* <h3> {songName} </h3> */}
+          </div>
+        )
+
+      })
+      // })
+
+      console.log(searchRender, ' this is searchRender');
+
+
+
+//searchRender is the new array from map.
     return (
     <div>
        <form onSubmit={this.searchHandler}>
@@ -37,6 +65,9 @@ searchHandler = async(e) => {
         <input type='text' name='searchArtistName' placeholder='Search Artist' value={this.state.searchArtistName} onChange={this.songSearchHandler}/>
         <input type='submit' value='find'/>
         </form>
+
+        {searchRender}
+
     </div>
     )
   }

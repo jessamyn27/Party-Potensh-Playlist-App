@@ -6,8 +6,10 @@ class SpotifyPlaylistSearch extends Component {
     super();
     this.state = {
       playlistFind: '',
+      searchResults: [],
     }
   }
+
 
   playlistFindHandler = (e) => {
     this.setState({
@@ -27,10 +29,16 @@ class SpotifyPlaylistSearch extends Component {
     }
     });
     const playlistJson = await PlaylistData.json();
-    console.log(playlistJson);
-    return playlistJson;
+    console.log(playlistJson, 'this is the data that will become searchResults');
+    // return playlistJson;
+    this.setState({
+      searchResults: playlistJson
+    })
+
   }
+
   render () {
+
     return(
       <div>
         <form onSubmit={this.searchHandler}>
@@ -40,6 +48,7 @@ class SpotifyPlaylistSearch extends Component {
       </div>
     )
   }
+
 }
 
 export default SpotifyPlaylistSearch;
