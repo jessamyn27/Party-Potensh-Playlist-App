@@ -13,7 +13,7 @@ router.get('/login', function(req, res) {
     querystring.stringify({
       response_type: 'code',
       client_id: process.env.SPOTIFY_CLIENT_ID,
-      scope: 'user-read-private user-read-email playlist-read-private',
+      scope: 'user-read-private user-read-email playlist-read-private playlist-modify-private playlist-modify-public',
       redirect_uri
     }))
 })
