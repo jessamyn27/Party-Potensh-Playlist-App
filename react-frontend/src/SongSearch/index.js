@@ -23,7 +23,7 @@ searchHandler = async(e) => {
   const track = this.state.searchTrackName === '' ? '' : `track:${this.state.searchTrackName}`;
   console.log(track, 'this is the track vari');
   //artist:${this.state.searchArtistName}
-  const searchData = await fetch(`https://api.spotify.com/v1/search?q=${track} ${artist}&type=track`, {
+  const searchData = await fetch(`https://api.spotify.com/v1/search?q=${track} ${artist}&type=track&limit=10`, {
     headers: {'Authorization': 'Bearer ' + this.props.access_token, "Accept": "application/json","Content-Type": "application/json"
   }
   })
