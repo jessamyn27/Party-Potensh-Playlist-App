@@ -4,6 +4,9 @@ import SpotifyPlaylistSearch from '../SpotifyPlaylistSearch';
 import SearchForSong from '../SongSearch';
 import AddToPlaylist from '../AddToPlaylist';
 import RefreshToken from '../RefreshToken';
+import Weather from '../ForecastContainer';
+import Map from '../DirectionsContainer';
+
 const spotifyUri = require('spotify-uri');
 
 class Spotify extends Component {
@@ -33,6 +36,7 @@ class Spotify extends Component {
       [e.currentTarget.name]: e.currentTarget.value,
     })
   }
+
 
   searchHandler = async(e) => {
     e.preventDefault();
@@ -97,7 +101,7 @@ class Spotify extends Component {
     this.setState({
       access_token: response.access_token
     })
-    
+
   }
 
   componentDidMount() {
@@ -155,16 +159,25 @@ class Spotify extends Component {
     console.log(this.state, 'this state')
     return (
     <div>
+      <div className="Map">
+      <h1>Your Party Location</h1>
+      <Map />
+    </div>
+    <div className="Forecast">
+      <h1>Your Party Weather</h1>
+      <Weather />
+    </div>
+
     <h1>Spotify Main Container</h1>
       <SpotifyPlaylistSearch playlistSearchHandler={this.playlistSearchHandler} textInputHandler={this.textInputHandler} access_token={this.state.access_token}
         playlistFind={this.state.playlistFind}
       />
       <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} searchArtistName={this.state.searchArtistName} searchResults={this.state.searchResults} searchTrackName={this.state.searchTrackName} searchHandler={this.searchHandler}  addSongHandler={this.addSongHandler}/>
 
-      <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/> 
+      <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
 
       <RefreshToken refreshToken={this.refreshToken}/>
-      
+
     </div>
     )
   }
