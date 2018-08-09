@@ -10,6 +10,7 @@ import CreateParty from './CreateParty';
 import Register from './Register';
 import Nav from './Nav';
 import Maincontainer from './Maincontainer';
+import Logout from './Logout';
 import Spotify from './Spotify'
 
 class App extends Component {
@@ -19,9 +20,10 @@ class App extends Component {
       <main>
       <Nav/>
       <Maincontainer/>
-
       <Switch>
-        <Route exact path='/' component={Login}/>
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/login' component={Login}/>
+        <Route exact path='/Logout' component={Login}/>
         {/* <Route exact path='/profile' component={Profile}/> */}
       </Switch>
     </main>

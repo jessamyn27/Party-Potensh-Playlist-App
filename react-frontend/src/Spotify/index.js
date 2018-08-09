@@ -12,9 +12,9 @@ class Spotify extends Component {
       serverData: {}, // currently not used
       allPlaylists: [], // all playlists attached to Spotify-user's account
       spotifyUserID: '', // Spotify User ID
-      spotifyName: '', // Name on spotify 
+      spotifyName: '', // Name on spotify
       access_token: '', // access Token from spotify login
-      playlistFind: '', // input text for playlist search 
+      playlistFind: '', // input text for playlist search
       playlistAddID: '', // the Spotify-Id for playlist added
       partyPlaylists: [], // array to hold partyPlaylist data from Spotify
       songAddedID: '', // Tempt text-input handler for song ID submited for addtion to playlist
@@ -22,7 +22,7 @@ class Spotify extends Component {
       searchArtistName: '', // Text Input for search tracking
       searchResults: []
 
-      
+
     }
   }
 
@@ -70,7 +70,7 @@ class Spotify extends Component {
 
   addSongHandler = async (e) => {
     e.preventDefault();
-    
+
     const songAddedId = {"uris": [`spotify:track:${this.state.songAddedID}`]};
     let addSongData = await fetch(`https://api.spotify.com/v1/users/${this.state.spotifyUserID}/playlists/${this.state.playlistAddID}/tracks`, {
       method: 'POST',
@@ -101,7 +101,8 @@ class Spotify extends Component {
     fetch('https://api.spotify.com/v1/me/playlists', {
       headers: {'Authorization': 'Bearer ' + accessToken, "Accept": "application/json","Content-Type": "application/json"
     }
-    }).then(response =>  response.json())
+    }).then(response => response.json())
+
     .then(data => this.setState({
       allPlaylists: data.items.map(item => {
         // console.log(data, 'data in playlist')

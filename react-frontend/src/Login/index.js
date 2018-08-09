@@ -10,7 +10,6 @@ class Login extends Component{
   }
   handleSubmit = async (e) => {
     e.preventDefault();
-//we're trying to send this to the database
 const loginResponse = await fetch('http://localhost:9000/auth/login', {
       method: 'POST',
       credentials: 'include',
@@ -21,17 +20,21 @@ const loginResponse = await fetch('http://localhost:9000/auth/login', {
     });
 
     const parsedResponse = await loginResponse.json();
-
-    if(parsedResponse.data = 'login successful'){
-      // switch our route
-      //Programitically switch
+    console.log(parsedResponse);
+    if(parsedResponse.data === 'login successful'){
       this.props.history.push('/profile');
+    } else if(parsedResponse.data === 'Password incorrect'){
+      alert('Password Incorrect')
+    } else if(parsedResponse.data === 'Username incorrect'){
+      alert('Username Not Found. Please Register')
     }
-}
+
+    }
   handleChange = (e) => {
     this.setState({[e.target.name]:e.target.value});
   }
   render() {
+    console.log('this is props for Login', this.props)
     return(
       <div>
       <form onSubmit={this.handleSubmit}>

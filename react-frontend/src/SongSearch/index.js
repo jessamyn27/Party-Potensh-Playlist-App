@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 const spotifyUri = require('spotify-uri');
 
 class SearchForSong extends Component {
-
-    render(){
+render(){
       console.log(this.props, 'search props')
       const searchRender = this.props.searchResults.map((track, index) => {
 

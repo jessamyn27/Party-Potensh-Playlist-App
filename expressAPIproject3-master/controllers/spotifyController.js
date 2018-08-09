@@ -4,8 +4,8 @@ let request = require('request');
 let querystring = require('querystring');
 
 
-let redirect_uri = 
-  process.env.REDIRECT_URI || 
+let redirect_uri =
+  process.env.REDIRECT_URI ||
   'http://localhost:9000/spotify/callback'
 
 router.get('/login', function(req, res) {
@@ -13,7 +13,7 @@ router.get('/login', function(req, res) {
     querystring.stringify({
       response_type: 'code',
       client_id: process.env.SPOTIFY_CLIENT_ID,
-      scope: 'user-read-private user-read-email playlist-read-private playlist-modify-private playlist-modify-public',
+      scope: 'user-read-private user-read-email playlist-read-private',
       redirect_uri
     }))
 })
