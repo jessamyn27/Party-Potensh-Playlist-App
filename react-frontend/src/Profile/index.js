@@ -5,14 +5,15 @@ import React, {Component} from 'react';
 // show login name
 // show list of parties
 //
-const Profile = () => {
+// const Profile = () => {
 
 // grab the username and password from the database
 // grab the create party by user._idt
-}
-return {
 
-}
-render (
+// return {
 
-)
+// }
+// }
+// render (
+
+// )

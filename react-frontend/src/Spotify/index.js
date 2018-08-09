@@ -39,7 +39,7 @@ class Spotify extends Component {
     console.log(track, 'this is the track vari');
     //artist:${this.state.searchArtistName}
     const searchData = await fetch(`https://api.spotify.com/v1/search?q=${track} ${artist}&type=track`, {
-      headers: {'Authorization': 'Bearer ' + this.props.access_token, "Accept": "application/json","Content-Type": "application/json"
+      headers: {'Authorization': 'Bearer ' + this.state.access_token, "Accept": "application/json","Content-Type": "application/json"
     }
     })
     const searchJson = await searchData.json();
@@ -109,17 +109,17 @@ class Spotify extends Component {
           name: item.name,
           imageUrl: item.images.map((item)=>{
             return item;
-          }), 
+          }),
           songs: []
         }
     })
     })
   )
 
-  } 
+  }
   render() {
 
-    // *** THIS IS PRACTIVE API MANGLING 
+    // *** THIS IS PRACTIVE API MANGLING FOR IMAGES
     // console.log(this.state, 'this is the state')
     // const playlists = this.state.playlists.map((item)=> {
     //   console.log(item.imageUrl[0], 'this is an item')
@@ -130,6 +130,7 @@ class Spotify extends Component {
     //  })
     // })
     // console.log(playlists);
+
     console.log(this.state, 'this state')
     return (
     <div>

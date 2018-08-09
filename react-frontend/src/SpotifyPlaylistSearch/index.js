@@ -3,6 +3,7 @@ const spotifyUri = require('spotify-uri');
 
 class SpotifyPlaylistSearch extends Component {
   render () {
+
     return(
       <div>
         <form onSubmit={this.props.playlistSearchHandler}>
@@ -12,6 +13,7 @@ class SpotifyPlaylistSearch extends Component {
       </div>
     )
   }
+
 }
 
 export default SpotifyPlaylistSearch;
