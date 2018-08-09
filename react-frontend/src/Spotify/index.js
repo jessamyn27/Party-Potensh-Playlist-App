@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import SpotifyPlaylistSearch from '../SpotifyPlaylistSearch';
 import SearchForSong from '../SongSearch';
 import AddToPlaylist from '../AddToPlaylist';
+import RefreshToken from '../RefreshToken';
 const spotifyUri = require('spotify-uri');
 
 class Spotify extends Component {
@@ -20,7 +21,8 @@ class Spotify extends Component {
       songAddedID: '', // Tempt text-input handler for song ID submited for addtion to playlist
       searchTrackName: '', // Text Input for search tracking
       searchArtistName: '', // Text Input for search tracking
-      searchResults: []
+      searchResults: [],
+      refresh_token: '',
 
 
     }
@@ -46,6 +48,8 @@ class Spotify extends Component {
     console.log(searchJson,'search results');
     this.setState({
       searchResults: searchJson.tracks.items,
+      searchArtistName: '',
+      searchTrackName: ''
     })
   }
 
@@ -64,14 +68,16 @@ class Spotify extends Component {
     console.log(playlistJson, 'PLAYLISTJson');
     this.setState({
       playlistAddID: playlist_id,
-      partyPlaylists: [...this.state.partyPlaylists, playlistJson]
+      partyPlaylists: [...this.state.partyPlaylists, playlistJson],
+      playlistFind: ''
     })
   }
 
-  addSongHandler = async (e) => {
+  addSongHandler = async (urilink, e) => {
     e.preventDefault();
 
-    const songAddedId = {"uris": [`spotify:track:${this.state.songAddedID}`]};
+    const songAddedId = {"uris": [urilink]};
+    console.log(urilink)
     let addSongData = await fetch(`https://api.spotify.com/v1/users/${this.state.spotifyUserID}/playlists/${this.state.playlistAddID}/tracks`, {
       method: 'POST',
       body: JSON.stringify(songAddedId),
@@ -79,12 +85,25 @@ class Spotify extends Component {
     }
     });
     const addSongResponse = await addSongData.json();
-    console.log(addSongResponse);
+    console.log(addSongResponse, 'response from addSong');
+  }
+
+  refreshToken = async(e) => {
+    e.preventDefault();
+    console.log(this.state.refresh_token)
+    const req = await fetch(`http://localhost:9000/spotify/refresh_token?refresh_token=${this.state.refresh_token}`);
+    // console.log(await req.json())
+    const response = await req.json();
+    this.setState({
+      access_token: response.access_token
+    })
+    
   }
 
   componentDidMount() {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
+    let refresh_token = parsed.refresh_token;
     if (!accessToken)
       return;
     fetch('https://api.spotify.com/v1/me', {
@@ -96,6 +115,7 @@ class Spotify extends Component {
         spotifyUserID: data.id,
         spotifyName: data.displayName,
         access_token: accessToken,
+        refresh_token: refresh_token,
     }) })
 
     fetch('https://api.spotify.com/v1/me/playlists', {
@@ -139,9 +159,11 @@ class Spotify extends Component {
       <SpotifyPlaylistSearch playlistSearchHandler={this.playlistSearchHandler} textInputHandler={this.textInputHandler} access_token={this.state.access_token}
         playlistFind={this.state.playlistFind}
       />
-      <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} searchArtistName={this.state.searchArtistName} searchResults={this.state.searchResults} searchTrackName={this.state.searchTrackName} searchHandler={this.searchHandler}/>
+      <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} searchArtistName={this.state.searchArtistName} searchResults={this.state.searchResults} searchTrackName={this.state.searchTrackName} searchHandler={this.searchHandler}  addSongHandler={this.addSongHandler}/>
 
       <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/> 
+
+      <RefreshToken refreshToken={this.refreshToken}/>
       
     </div>
     )

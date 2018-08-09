@@ -3,7 +3,7 @@ const spotifyUri = require('spotify-uri');
 
 class SearchForSong extends Component {
 render(){
-      console.log(this.props, 'search props')
+      // console.log(this.props, 'search props')
       const searchRender = this.props.searchResults.map((track, index) => {
 
         // console.log(track.artists[0].name);
@@ -14,7 +14,7 @@ render(){
         const songName = track.name;
         const link = track.uri;  //href not external link.
         const image = track.album.images[2].url;
-        console.log(track.album.images[2]);
+        // console.log(track.album.images[2]);
         //how to add button that reads the link and adds it to the playlist.
 
 
@@ -25,7 +25,7 @@ render(){
             <h3> {songName} by {artistName} </h3>
             <img src={image} className="spotifyImg" />
 
-            <form>
+            <form onSubmit={this.props.addSongHandler.bind(null,link)}>
               <input type='submit' value='add to playlist'/>
             </form>
           </div>
