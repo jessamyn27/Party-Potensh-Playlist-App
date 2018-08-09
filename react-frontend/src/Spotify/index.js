@@ -20,6 +20,7 @@ class Spotify extends Component {
       songAddedID: '', // Tempt text-input handler for song ID submited for addtion to playlist
       searchTrackName: '', // Text Input for search tracking
       searchArtistName: '', // Text Input for search tracking
+      searchResults: []
 
       
     }
@@ -42,7 +43,10 @@ class Spotify extends Component {
     }
     })
     const searchJson = await searchData.json();
-    console.log(searchJson);
+    console.log(searchJson,'search results');
+    this.setState({
+      searchResults: searchJson,
+    })
   }
 
   playlistSearchHandler = async (e) => {
@@ -133,7 +137,8 @@ class Spotify extends Component {
       <SpotifyPlaylistSearch playlistSearchHandler={this.playlistSearchHandler} textInputHandler={this.textInputHandler} access_token={this.state.access_token}
         playlistFind={this.state.playlistFind}
       />
-      <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} searchArtistName={this.state.searchArtistName} searchTrackName={this.state.searchTrackName} searchHandler={this.searchHandler}/>
+      <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} searchArtistName={this.state.searchArtistName} searchResults={this.state.searchResults} searchTrackName={this.state.searchTrackName} searchHandler={this.searchHandler}/>
+
       <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/> 
       
     </div>
