@@ -22,7 +22,7 @@ class SearchForSong extends Component {
 //searchRender is getting all this data. THEN you will actually render this out on the last return. This return is for the mapped data. This is the new array.
 
         return (
-          <div>
+          <div key={index}>
             <h3> {songName} by {artistName} </h3>
             <img src={image} className="spotifyImg" />
 
