@@ -3,6 +3,7 @@ import Parties from '../Parties';
 import CreateParty from '../CreateParty';
 import Edit from '../Edit';
 
+// THIS IS OUR PROFILE PAGE WITH ALL OUR CRUD
 class MainContainer extends Component {
   constructor(){
     super();
@@ -16,7 +17,6 @@ class MainContainer extends Component {
         location:'',
         zip:'',
         information:''
-
           }
     }
   }
@@ -30,12 +30,6 @@ class MainContainer extends Component {
         console.log(err)
       });
 
-    }
-
-    getParties = async () => {
-      const parties = await fetch('http://localhost:9000/api/v1/main');
-      const parsedParties = parties.json();
-      return parsedParties
     }
 
     addParty = async (party, e) => {
@@ -58,6 +52,15 @@ class MainContainer extends Component {
       }
 
     }
+
+
+    getParties = async () => {
+      const parties = await fetch('http://localhost:9000/api/v1/main');
+      const parsedParties = parties.json();
+      return parsedParties
+    }
+
+
 
     deleteParty = async (id, e) => {
       e.preventDefault();
@@ -141,7 +144,7 @@ class MainContainer extends Component {
         <div>
            <Parties parties={this.state.parties} deleteParty={this.deleteParty}
            showModal={this.showModal}/>
-          <CreateParty addParty={this.addParty}/>
+           <CreateParty addParty={this.addParty}/>
           {this.state.showEdit ? <Edit closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} partyToEdit={this.state.partyToEdit}/> : null}
         </div>
       )

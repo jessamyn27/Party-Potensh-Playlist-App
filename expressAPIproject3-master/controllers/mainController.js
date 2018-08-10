@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Party = require('../models/party'); //the model is capitalized & is a representation of our data.
-
+const Party = require('../models/party');
+const User = require('../models/user');
 
 //INDEX ROUTE
  router.get('/', async (req, res, next) => {
@@ -20,18 +20,19 @@ const Party = require('../models/party'); //the model is capitalized & is a repr
 });
 
 
-//CREATE new party
+// CREATE new party
 router.post('/', async (req, res) => {
-
   try {
     console.log(req.body, ' this is req.body');
+    const findUser = User.findById(req.session.userId);
     const createdParty= await Party.create(req.body);
-
+    const [foundUser, createParty] = await Promise.all([findUser, createdParty]);
+    foundUser.hostedParties.push(createdParty);
+    await foundUser.save();
     res.json({
       status: 200,
       data: createdParty
     });
-
   } catch(err){
     console.log(err);
     res.send(err);

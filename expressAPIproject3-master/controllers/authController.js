@@ -43,7 +43,8 @@ User.findOne({username: req.body.username}, (err, user) => {
         req.session.userId = user._id;
         res.json({
           status: 200,
-          data: 'login successful'
+          data: 'login successful',
+          userID: user._id
         });
         } else {
           res.json({

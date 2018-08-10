@@ -8,7 +8,8 @@ class CreateParty extends Component {
       date:'',
       location: '',
       zip:'',
-      information: ''
+      information: '',
+      playlistID: ''
     }
   }
   updateParty = (e) =>{
@@ -33,6 +34,9 @@ class CreateParty extends Component {
         </label>
         <label>
           <input type='text' name='information' placeholder='information' onChange={this.updateParty}/>
+        </label>
+        <label>
+          <input type='text' name='spotifyID' placeholder='Spotify Playlist URI ' onChange={this.updateParty}/>
         </label>
           <input type='Submit' value='Create Party'/>
       </form>

@@ -1,19 +1,29 @@
 import React, {Component} from 'react';
+import CreateParty from '../CreateParty';
+import Maincontainer from '../Maincontainer';
+import ForecastContainer from '../ForecastContainer';
+import DirectionsContainer from '../DirectionsContainer';
 
-// gonna have the editparty link and delete party link in here for the person's profile that will have a list of parties
+class Profile extends Component {
+  constructor(){
+    super();
+    this.state = {
+      userID: ''
+    }
 
-// show login name
-// show list of parties
-//
-// const Profile = () => {
+  }
 
-// grab the username and password from the database
-// grab the create party by user._idt
+  render() {
+    return(
+      <div>
+        <h1>Profile</h1>
+        <h4>Create Your Party Here</h4>
+      <h4>Here Are Your Parties</h4>
+      <Maincontainer />
+      </div>
+    )
+  }
+}
 
-// return {
 
-// }
-// }
-// render (
-
-// )
+export default Profile;

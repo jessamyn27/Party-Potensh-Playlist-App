@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Login from './Login';
-import Profile from './Profile';
 import './App.css';
 import About from './About';
 import Edit from './Edit';
@@ -19,25 +18,15 @@ class App extends Component {
       <div>
       <main>
       <Nav/>
-      <Maincontainer/>
       <Switch>
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login}/>
-        <Route exact path='/Logout' component={Login}/>
-        {/* <Route exact path='/profile' component={Profile}/> */}
+        <Route exact path='/Logout' component={Logout}/>
+        <Route exact path='/profile' component={Maincontainer}/>
+        <Route exact path='/spotify' component={Spotify}/>
+
       </Switch>
     </main>
-
-      {/* <div className="App"> */}
-        {/* <Login /> */}
-         {/* <About /> */}
-        {/* <Edit /> */}
-        {/* <Parties /> */}
-        {/* <CreateParty /> */}
-         {/* <Register /> */}
-        {/* <Profile /> */}
-        <Spotify/>
-
       </div>
     );
   }

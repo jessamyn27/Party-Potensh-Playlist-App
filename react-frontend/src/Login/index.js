@@ -20,14 +20,16 @@ const loginResponse = await fetch('http://localhost:9000/auth/login', {
     });
 
     const parsedResponse = await loginResponse.json();
-    console.log(parsedResponse);
+    console.log(parsedResponse, 'this is our parsed data at login');
     if(parsedResponse.data === 'login successful'){
       this.props.history.push('/profile');
+
     } else if(parsedResponse.data === 'Password incorrect'){
       alert('Password Incorrect')
     } else if(parsedResponse.data === 'Username incorrect'){
       alert('Username Not Found. Please Register')
     }
+
 
     }
   handleChange = (e) => {
