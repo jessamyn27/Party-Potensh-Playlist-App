@@ -18,7 +18,7 @@
 
 ### Wireframes
 
-# ![](/images/wireframe.png)
+# ![](./images/wireframe.png)
        ------------------------------------------------------------------
 
 ### API endpoints
