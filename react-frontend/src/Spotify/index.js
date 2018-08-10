@@ -201,7 +201,12 @@ class Spotify extends Component {
 />
     
 
-      <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} searchArtistName={this.state.searchArtistName} searchResults={this.state.searchResults} searchTrackName={this.state.searchTrackName} searchHandler={this.searchHandler}  addSongHandler={this.addSongHandler}/>
+      <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} 
+      searchArtistName={this.state.searchArtistName} 
+      searchResults={this.state.searchResults} 
+      searchTrackName={this.state.searchTrackName} 
+      searchHandler={this.searchHandler} 
+       addSongHandler={this.addSongHandler}/>
 
       {/* <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
 

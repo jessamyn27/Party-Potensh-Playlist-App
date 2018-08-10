@@ -54,7 +54,7 @@ router.get('/callback', function(req, res) {
       spotifyAccessToken: access_token,
       spotifyRefreshToken: refresh_token
     }, {new:true}).then((value)=> { 
-      // console.log(req.session, 'THIS IS VALUE')
+      console.log(value, 'THIS IS VALUE')
     let uri = process.env.FRONTEND_URI || 'http://localhost:3000/profile'
     req.session.save((err)=>{
       res.redirect(uri)
