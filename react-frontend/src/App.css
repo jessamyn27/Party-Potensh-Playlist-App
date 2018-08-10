@@ -29,8 +29,9 @@
 .navBar {
   display: flex;
   justify-content: center;
-  background-color: #b4fff4;
-  margin-bottom: 50px;
+  background-color: black;
+  /* background-color: #b4fff4; */
+  margin-bottom: 40px;
 }
 
 .navBar ul {
@@ -42,14 +43,61 @@
 
 }
 
-
 .navBar ul a {
-  color: black;
+  color: white;
   font-size: 20px;
   margin-right: 65px;
   line-height: 50px;
   vertical-align: middle;
 }
+
+
+/* LOGIN REGISTER */
+
+.loginRegister {
+  text-align: center;
+}
+
+.loginRegisterImage {
+  display: inline;
+  height: 50vh;
+  width: 50vw;
+}
+
+label {
+  margin-right: 20px;
+}
+
+
+
+/* PARTY FORM */
+
+
+
+.partyForm {
+  display: flex;
+  width: 20vw;
+  /* background-color: pink; */
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.partyTitle {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.partyBackground {
+  width: 60%;
+  background-color: #fff5d0;
+  padding: 20px;
+  margin: 0 auto;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
 
 /* ABOUT PAGE */
 
@@ -68,13 +116,13 @@
 }
 
 #aboutForm {
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 }
 
 #contactComment {
-  height: 70px;
+  height: 50px;
   width: 250px;
   margin-right: 20px;
   border: 1px solid black;
@@ -82,7 +130,7 @@
 }
 
 #contactEmail {
-    height: 70px;
+    height: 50px;
     width: 250px;
     margin-right: 20px;
     border: 1px solid black;
@@ -92,7 +140,7 @@
 #contactSubmit {
   height: 40px;
   width: 100px;
-  margin-top: 15px;
+  margin-top: 5px;
   border-radius: 4%;
   background-color: lightgrey;
 }

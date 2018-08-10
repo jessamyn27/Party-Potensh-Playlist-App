@@ -26,7 +26,7 @@ const loginResponse = await fetch('http://localhost:9000/auth/login', {
       this.props.history.push('/profile');
       //Directs to spotify login ,then directs to profile page
       // window.location.assign('http://localhost:9000/spotify/login')
-      
+
 
     } else if(parsedResponse.data === 'Password incorrect'){
       alert('Password Incorrect')
@@ -41,8 +41,23 @@ const loginResponse = await fetch('http://localhost:9000/auth/login', {
   }
   render() {
     console.log('this is props for Login', this.props)
+
+    const style={
+      width: '200px',
+      height: '200px',
+      borderRadius: '50%',
+      marginBottom: '50px',
+    }
+
     return(
-      <div>
+
+      <div className="loginRegister">
+
+<div className="loginRegisterImage">
+          <img style={style} src="https://images.unsplash.com/photo-1483821838526-8d9756a6e1ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f2ee5af66743fa8159bcce66cdc57428&auto=format&fit=crop&w=2768&q=80" />
+</div>
+
+
       <form onSubmit={this.handleSubmit}>
         <label>
           Username:

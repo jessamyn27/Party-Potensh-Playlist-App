@@ -19,6 +19,12 @@ class CreateParty extends Component {
   render(){
     console.log(this, ' this is props for create party');
     return(
+<div>
+      <div>
+        <h1 className="partyTitle">Create Your Party Here!</h1>
+      </div>
+      <div className="partyBackground">
+      <div className="partyForm">
       <form onSubmit={this.props.addParty.bind(null,this.state)}>
         <label>
           <input type='text' name='name' placeholder='name' onChange={this.updateParty}/>
@@ -40,6 +46,9 @@ class CreateParty extends Component {
         </label>
           <input type='Submit' value='Create Party'/>
       </form>
+    </div>
+  </div>
+  </div>
     )
   }
 }
