@@ -12,6 +12,7 @@ import Maincontainer from './Maincontainer';
 import Logout from './Logout';
 import Spotify from './Spotify'
 import Welcome from './Welcome';
+import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends Component {
   render() {
@@ -26,7 +27,7 @@ class App extends Component {
         <Route exact path='/profile' component={Maincontainer}/>
         <Route exact path='/spotify' component={Spotify}/>
         <Route exact path='/about' component={About}/>
-        <Route component={Welcome}/>       
+        <Route component={Welcome}/>
 
       </Switch>
     </main>

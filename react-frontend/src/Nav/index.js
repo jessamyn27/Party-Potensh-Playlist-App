@@ -5,7 +5,7 @@ import Logout from '../Logout';
 
 const Nav = () => {
   return (
-      <nav>
+      <nav className = "navBar">
         <ul>
           <li><Link to = '/Logout'>Logout</Link></li>
           <li><Link to ='/register'>Register</Link></li>
