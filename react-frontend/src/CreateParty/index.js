@@ -36,7 +36,7 @@ class CreateParty extends Component {
           <input type='text' name='information' placeholder='information' onChange={this.updateParty}/>
         </label>
         <label>
-          <input type='text' name='spotifyID' placeholder='Spotify Playlist URI ' onChange={this.updateParty}/>
+          <input type='text' name='playlistID' placeholder='Spotify Playlist URI ' onChange={this.updateParty}/>
         </label>
           <input type='Submit' value='Create Party'/>
       </form>

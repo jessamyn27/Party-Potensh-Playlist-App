@@ -105,41 +105,36 @@ class Spotify extends Component {
   }
 
   componentDidMount() {
-    let parsed = queryString.parse(window.location.search);
-    let accessToken = parsed.access_token;
-    let refresh_token = parsed.refresh_token;
-    if (!accessToken)
-      return;
-    fetch('https://api.spotify.com/v1/me', {
-      headers: {'Authorization': 'Bearer ' + accessToken}
-    }).then(response => response.json())
-    .then(data => {
-      console.log(data, 'user data ME');
-      return this.setState({
-        spotifyUserID: data.id,
-        spotifyName: data.displayName,
-        access_token: accessToken,
-        refresh_token: refresh_token,
-    }) })
+    // let parsed = queryString.parse(window.location.search);
+    // let accessToken = parsed.access_token;
+    // let refresh_token = parsed.refresh_token;
+    // let userID = parsed.userId;
+    const spotifyUser = fetch('http://localhost:9000/spotify/me', {method: 'GET', credentials: 'include'}).then(data => 
+      data.json()
+    ).then((data) => {console.log(data)})
+    
+    // if (!accessToken)
+    //   return;
+    
 
-    fetch('https://api.spotify.com/v1/me/playlists', {
-      headers: {'Authorization': 'Bearer ' + accessToken, "Accept": "application/json","Content-Type": "application/json"
-    }
-    }).then(response => response.json())
+  //   fetch('https://api.spotify.com/v1/me/playlists', {
+  //     headers: {'Authorization': 'Bearer ' + accessToken, "Accept": "application/json","Content-Type": "application/json"
+  //   }
+  //   }).then(response => response.json())
 
-    .then(data => this.setState({
-      allPlaylists: data.items.map(item => {
-        // console.log(data, 'data in playlist')
-        return {
-          name: item.name,
-          imageUrl: item.images.map((item)=>{
-            return item;
-          }),
-          songs: []
-        }
-    })
-    })
-  )
+  //   .then(data => this.setState({
+  //     allPlaylists: data.items.map(item => {
+  //       // console.log(data, 'data in playlist')
+  //       return {
+  //         name: item.name,
+  //         imageUrl: item.images.map((item)=>{
+  //           return item;
+  //         }),
+  //         songs: []
+  //       }
+  //   })
+  //   })
+  // )
 
   }
   render() {

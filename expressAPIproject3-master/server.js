@@ -21,6 +21,8 @@ app.use(session({
   saveUninitialized: false,
 }))
 
+
+
 //CORS
 const corsOptions = {
   origin: 'http://localhost:3000',
