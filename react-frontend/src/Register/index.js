@@ -22,9 +22,8 @@ const registerResponse = await fetch('http://localhost:9000/auth/register', {
     const parsedResponse = await registerResponse.json();
 
     if(parsedResponse.data = 'register successful'){
-      // this.props.history.push('/profile');
-      // after registaring the client then signs into spotify
-      window.location.assign('http://localhost:9000/spotify/login')
+      this.props.history.push('/profile');
+      
     }
 }
   handleChange = (e) => {

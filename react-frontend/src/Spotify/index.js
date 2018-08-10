@@ -6,6 +6,7 @@ import AddToPlaylist from '../AddToPlaylist';
 import RefreshToken from '../RefreshToken';
 import Weather from '../ForecastContainer';
 import Map from '../DirectionsContainer';
+import SpotifyPlayer from 'react-spotify-player';
 
 const spotifyUri = require('spotify-uri');
 
@@ -105,7 +106,9 @@ class Spotify extends Component {
   }
 
   componentDidMount() {
+    
     let parsed = queryString.parse(window.location.search);
+    console.log(parsed)
     // let accessToken = parsed.access_token;
     // let refresh_token = parsed.refresh_token;
     let URI = parsed.spotifyURI;
@@ -168,9 +171,15 @@ class Spotify extends Component {
     //  })
     // })
     // console.log(playlists);
+    const size = {
+      width: '100%',
+      height: 300,
+    };
+    const view = 'list'; // or 'coverart'
+    const theme = 'black'; // or 'white'
 
     console.log(this.state, 'this state')
-    console.log(this.state.spotifyUri)
+    console.log(this.props.location.state)
     return (
     <div>
       <div className="Map">
@@ -182,10 +191,16 @@ class Spotify extends Component {
       <Weather />
     </div>
     <h1>Party Playlist</h1>
-      {/* <SpotifyPlaylistSearch playlistSearchHandler={this.playlistSearchHandler} textInputHandler={this.textInputHandler} access_token={this.state.access_token}
-        playlistFind={this.state.playlistFind}
-      /> */}
-      <iframe src={`https://open.spotify.com/embed?uri=${this.state.spotifyUri}`} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      
+    
+      <SpotifyPlayer
+  uri= {this.state.spotifyUri}
+  size={size}
+  view={view}
+  theme={theme}
+/>
+    
+
       <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} searchArtistName={this.state.searchArtistName} searchResults={this.state.searchResults} searchTrackName={this.state.searchTrackName} searchHandler={this.searchHandler}  addSongHandler={this.addSongHandler}/>
 
       {/* <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>

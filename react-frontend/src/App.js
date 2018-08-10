@@ -25,6 +25,7 @@ class App extends Component {
         <Route exact path='/Logout' component={Logout}/>
         <Route exact path='/profile' component={Maincontainer}/>
         <Route exact path='/spotify' component={Spotify}/>
+        <Route exact path='/about' component={About}/>
         <Route component={Welcome}/>       
 
       </Switch>

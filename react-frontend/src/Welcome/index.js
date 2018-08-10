@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route, Switch, Redirect} from 'react-router-dom';
 
 class Welcome extends Component {
   constructor () {
@@ -16,8 +17,15 @@ class Welcome extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    console.log(e.currentTarget);
-    window.location.assign(`/spotify?spotifyURI=${this.state.playlistUri}`)
+    // this.props.history.push(`/spotify?spotifyURI=${this.state.playlistUri}`)
+
+    this.props.history.push({
+      pathname: '/spotify',
+      search: `?spotifyURI=${this.state.playlistUri}`,
+      state: { detail: this.state.playlistUri }
+    })
+
+    
   }
 
   render() {
