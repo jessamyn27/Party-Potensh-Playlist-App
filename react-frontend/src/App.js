@@ -11,6 +11,7 @@ import Nav from './Nav';
 import Maincontainer from './Maincontainer';
 import Logout from './Logout';
 import Spotify from './Spotify'
+import Welcome from './Welcome';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
         <Route exact path='/Logout' component={Logout}/>
         <Route exact path='/profile' component={Maincontainer}/>
         <Route exact path='/spotify' component={Spotify}/>
+        <Route component={Welcome}/>       
 
       </Switch>
     </main>

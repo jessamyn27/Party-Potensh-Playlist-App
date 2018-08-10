@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const Party = require('../models/party')
 let request = require('request');
 let querystring = require('querystring');
+var spotifyUri = require('spotify-uri');
 
 
 let redirect_uri =
@@ -95,46 +97,55 @@ router.get('/refresh_token/', function(req, res) {
   });
 });
 
-router.get('/me', async(req,res) => {
+router.get('/party/:URI', async(req,res) => {
   console.log(req.session, 'in the /me')
-  let options = {
-    url: 'https://api.spotify.com/v1/me',
-    headers: {'Authorization': 'Bearer ' + req.session.access_token},
-    method: 'GET',
-    json: true
-  }
-  request.get( options, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      res.json({body})
-    } else (
-      console.log(error, 'error??')
-    )
+try {
+  const URI = spotifyUri.parse(req.params.URI)
+  const userId =URI.user;
+  console.log(userId)
+  const playlistId = URI.id;
+  console.log(URI);
+  const foundUser = await User.findOne({ 
+    'hostedParties.playlistID': req.params.URI
   })
+  const foundParty = await Party.findOne({ 
+    playlistID: req.params.URI
+  })
+  console.log( foundUser.username, "User info")
+  console.log( foundParty, "PArty info HOSTING PARTY")
+
+  const response = {
+    "username": foundUser.username,
+    "access_token": foundUser.spotifyAccessToken,
+    "date": foundParty.date,
+    "location": foundParty.location,
+    "zip": foundParty.zip,
+    "information": foundParty.information,
+
+  } 
+  console.log(response)
+    res.json(response)
+  
+}
+catch (err) {
+  res.json(err)
+}
+  // let options = {
+  //   url: 'https://api.spotify.com/v1/me',
+  //   headers: {'Authorization': 'Bearer ' + req.session.access_token},
+  //   method: 'GET',
+  //   json: true
+  // }
+  // request.get( options, function(error, response, body) {
+  //   if (!error && response.statusCode === 200) {
+  //     res.json({body})
+  //   } else (
+  //     console.log(error, 'error??')
+  //   )
+  // })
 
 })
 
-router.get('/recreateSession/:userId', async (req,res)=> {
 
-  try {
-  // console.log(req.params.userId, 'USER ID?')
-  // console.log(req.session, 'this is ME ROUT' )
-  const userId = req.params.userId;
-  const findUser = await User.findById(userId);
-  
-  req.session.username = findUser.username;
-  req.session.loggedIn = true;
-  req.session.UserId = findUser._id;
-  req.session.access_token = findUser.spotifyAccessToken;
-  console.log(req.session, 'create session route')
-
-  
-   res.json({
-     status: 200
-   })
-  } catch (err) {
-    res.send(err);
-  }
-
-})
 
 module.exports = router;

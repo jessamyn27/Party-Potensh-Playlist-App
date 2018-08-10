@@ -105,13 +105,31 @@ class Spotify extends Component {
   }
 
   componentDidMount() {
-    // let parsed = queryString.parse(window.location.search);
+    let parsed = queryString.parse(window.location.search);
     // let accessToken = parsed.access_token;
     // let refresh_token = parsed.refresh_token;
-    // let userID = parsed.userId;
-    const spotifyUser = fetch('http://localhost:9000/spotify/me', {method: 'GET', credentials: 'include'}).then(data => 
-      data.json()
-    ).then((data) => {console.log(data)})
+    let URI = parsed.spotifyURI;
+    const uriObject = spotifyUri.parse(URI)
+  const userId = uriObject.user;
+  console.log(userId)
+  const playlistId = uriObject.id;
+  console.log(playlistId)
+
+    const spotifyUser = fetch(`http://localhost:9000/spotify/party/${URI}`, {method: 'GET', credentials: 'include'}).then(response => response.json()).then((data) => { 
+      console.log(data)
+      this.setState({
+        spotifyUserID: userId,
+        access_token: data.access_token,
+        date: data.date,
+        information: data.information,
+        location: data.location,
+        zip: data.zip,
+        playlistAddID: playlistId,
+        spotifyUri: URI
+        
+      })
+    
+    })
     
     // if (!accessToken)
     //   return;
@@ -152,6 +170,7 @@ class Spotify extends Component {
     // console.log(playlists);
 
     console.log(this.state, 'this state')
+    console.log(this.state.spotifyUri)
     return (
     <div>
       <div className="Map">
@@ -162,16 +181,16 @@ class Spotify extends Component {
       <h1>Your Party Weather</h1>
       <Weather />
     </div>
-
-    <h1>Spotify Main Container</h1>
-      <SpotifyPlaylistSearch playlistSearchHandler={this.playlistSearchHandler} textInputHandler={this.textInputHandler} access_token={this.state.access_token}
+    <h1>Party Playlist</h1>
+      {/* <SpotifyPlaylistSearch playlistSearchHandler={this.playlistSearchHandler} textInputHandler={this.textInputHandler} access_token={this.state.access_token}
         playlistFind={this.state.playlistFind}
-      />
+      /> */}
+      <iframe src={`https://open.spotify.com/embed?uri=${this.state.spotifyUri}`} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} searchArtistName={this.state.searchArtistName} searchResults={this.state.searchResults} searchTrackName={this.state.searchTrackName} searchHandler={this.searchHandler}  addSongHandler={this.addSongHandler}/>
 
-      <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
+      {/* <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
 
-      <RefreshToken refreshToken={this.refreshToken}/>
+      <RefreshToken refreshToken={this.refreshToken}/> */}
 
     </div>
     )

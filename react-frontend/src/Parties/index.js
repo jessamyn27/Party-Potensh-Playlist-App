@@ -8,7 +8,7 @@ const Parties = (props) => {
   const partyList = props.parties.map((party, i) => {
     return (
       <li key={party._id}>
-        <span><a href={'/spotify'} test="test">{party.name}</a></span>
+        <span><a href={`/spotify?spotifyURI=${party.playlistID}`} test="test">{party.name}</a></span>
         <small>{party.date}</small>
         <small>{party.location}</small>
         <small>{party.zip}</small>

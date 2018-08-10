@@ -30,9 +30,10 @@ router.post('/', async (req, res) => {
     console.log(req.body, ' this is req.body');
     const findUser = await User.findById(req.session.userId);
     const createdParty= await Party.create(req.body);
-    const [foundUser, createParty] = await Promise.all([findUser, createdParty]);
+    // const [foundUser, createParty] = await Promise.all([findUser, createdParty]);
     await foundUser.hostedParties.push(createdParty);
     await foundUser.save();
+    console.log(await foundUser);
     res.json({
       status: 200,
       data: createdParty
