@@ -2,10 +2,14 @@ import React from 'react';
 import queryString from 'query-string'
 
 const Parties = (props) => {
- 
-  
+
+ let partyList;
+ if(props.parties === undefined) {
+
+ } else {
+
  console.log('this is props for parties',props)
-  const partyList = props.parties.map((party, i) => {
+  partyList = props.parties.map((party, i) => {
     return (
       <li key={party._id}>
         <span><a href={`/spotify?spotifyURI=${party.playlistID}`} test="test">{party.name}</a></span>
@@ -21,6 +25,7 @@ const Parties = (props) => {
       )
   });
 
+} 
   return (
     <ul>
       {partyList}
