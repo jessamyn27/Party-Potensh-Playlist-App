@@ -22,7 +22,7 @@ class Spotify extends Component {
       searchTrackName: '', // Text Input for search tracking
       searchArtistName: '', // Text Input for search tracking
       searchResults: [],
-      refresh_token: '',
+      refresh_token: '', // refresh token used for getting new access token 
 
 
     }
