@@ -9,7 +9,8 @@ const User = require('../models/user');
      try  {
       
         console.log(req.session, ' this is get all')
-        const allParties = await Party.find();
+        const currentUser = await User.findById(req.session.userId);
+        const allParties = currentUser.hostedParties;
   
         res.json({
           status: 200,
@@ -31,9 +32,9 @@ router.post('/', async (req, res) => {
     const findUser = await User.findById(req.session.userId);
     const createdParty= await Party.create(req.body);
     // const [foundUser, createParty] = await Promise.all([findUser, createdParty]);
-    await foundUser.hostedParties.push(createdParty);
-    await foundUser.save();
-    console.log(await foundUser);
+    await findUser.hostedParties.push(createdParty);
+    await findUser.save();
+    console.log(await findUser);
     res.json({
       status: 200,
       data: createdParty
@@ -83,7 +84,20 @@ router.put('/:id', async (req, res) => {
 // Delete party
 router.delete('/:id', async (req, res) => {
   try {
+    console.log(req.params.id);
      const deletedParty = await Party.findByIdAndRemove(req.params.id);
+     const userPartyDelete = await User.findOne({'hostedParties._id': req.params.id});
+     const parties = userPartyDelete.hostedParties
+     console.log(req.params.id, 'REQ PARAMS')
+     console.log(parties.length, 'users delete parties')
+     for (let i= 0; i<parties.length; i++) {
+       console.log(parties[i]._id)
+       if(parties[i]._id == req.params.id) {
+         parties.splice(i,1);
+         
+       }
+     }
+     userPartyDelete.save()
       res.json({
         status: 200,
         data: deletedParty
