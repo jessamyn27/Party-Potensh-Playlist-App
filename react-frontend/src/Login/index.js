@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Route, Switch, Redirect} from 'react-router-dom';
 
 class Login extends Component{
   constructor(){
@@ -22,7 +23,10 @@ const loginResponse = await fetch('http://localhost:9000/auth/login', {
     const parsedResponse = await loginResponse.json();
     console.log(parsedResponse, 'this is our parsed data at login');
     if(parsedResponse.data === 'login successful'){
-      this.props.history.push('/profile');
+      // this.props.history.push('/profile');
+      //Directs to spotify login ,then directs to profile page
+      window.location.assign('http://localhost:9000/spotify/login')
+      
 
     } else if(parsedResponse.data === 'Password incorrect'){
       alert('Password Incorrect')
