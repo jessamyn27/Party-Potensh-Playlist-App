@@ -9,6 +9,7 @@
     "react-google-maps": "^9.4.5",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-spotify-player": "^1.0.4",
     "spotify-uri": "^1.0.0"
   },
   "scripts": {

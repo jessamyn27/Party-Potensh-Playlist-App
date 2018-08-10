@@ -7,7 +7,7 @@ const PartySchema = new mongoose.Schema({
   location: String,
   zip: String,
   information: String,
-  // playlistID: String
+  playlistID: String
   // we need the playlist id here
 })
 

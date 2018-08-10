@@ -23,6 +23,7 @@ const registerResponse = await fetch('http://localhost:9000/auth/register', {
 
     if(parsedResponse.data = 'register successful'){
       this.props.history.push('/profile');
+      
     }
 }
   handleChange = (e) => {

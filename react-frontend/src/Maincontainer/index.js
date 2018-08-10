@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Parties from '../Parties';
 import CreateParty from '../CreateParty';
 import Edit from '../Edit';
+import queryString from 'query-string';
 
 // THIS IS OUR PROFILE PAGE WITH ALL OUR CRUD
 class MainContainer extends Component {
@@ -30,6 +31,12 @@ class MainContainer extends Component {
         console.log(err)
       });
 
+      
+
+      
+      
+
+      
     }
 
     addParty = async (party, e) => {
@@ -55,7 +62,7 @@ class MainContainer extends Component {
 
 
     getParties = async () => {
-      const parties = await fetch('http://localhost:9000/api/v1/main');
+      const parties = await fetch('http://localhost:9000/api/v1/main', {method: 'GET', credentials: 'include'});
       const parsedParties = parties.json();
       return parsedParties
     }

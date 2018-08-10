@@ -5,14 +5,18 @@ const User = require('../models/user');
 
 //INDEX ROUTE
  router.get('/', async (req, res, next) => {
-  console.log(req.session, ' this is get all')
+  
      try  {
-      const allParties = await Party.find();
-
-      res.json({
-        status: 200,
-        data: allParties
-      })
+      
+        console.log(req.session, ' this is get all')
+        const allParties = await Party.find();
+  
+        res.json({
+          status: 200,
+          data: allParties
+        })
+       
+      
 
     } catch (err){
       res.send(err)
@@ -24,11 +28,12 @@ const User = require('../models/user');
 router.post('/', async (req, res) => {
   try {
     console.log(req.body, ' this is req.body');
-    const findUser = User.findById(req.session.userId);
+    const findUser = await User.findById(req.session.userId);
     const createdParty= await Party.create(req.body);
-    const [foundUser, createParty] = await Promise.all([findUser, createdParty]);
-    foundUser.hostedParties.push(createdParty);
+    // const [foundUser, createParty] = await Promise.all([findUser, createdParty]);
+    await foundUser.hostedParties.push(createdParty);
     await foundUser.save();
+    console.log(await foundUser);
     res.json({
       status: 200,
       data: createdParty
