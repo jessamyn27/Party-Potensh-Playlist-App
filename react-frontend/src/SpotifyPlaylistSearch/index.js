@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 const spotifyUri = require('spotify-uri');
-// this needs to be a 
+// this needs to be a
 class SpotifyPlaylistSearch extends Component {
   render () {
 

@@ -16,6 +16,13 @@ const About = () => {
         <input id="contactSubmit" type="submit"/>
 
         </form>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
 
       </div>
 
