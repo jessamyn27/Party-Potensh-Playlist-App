@@ -13,14 +13,19 @@ import Logout from './Logout';
 import Spotify from './Spotify'
 import Welcome from './Welcome';
 import 'bootstrap/dist/css/bootstrap.css'
+import Body from './Body';
+import styled from 'styled-components';
+
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className = "div">
+        <Body>
       <main>
       <Nav/>
       <Switch>
+        <Route exact path='/' component={Welcome} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login}/>
         <Route exact path='/Logout' component={Logout}/>
@@ -28,9 +33,22 @@ class App extends Component {
         <Route exact path='/spotify' component={Spotify}/>
         <Route exact path='/about' component={About}/>
         <Route component={Welcome}/>
-
       </Switch>
     </main>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    
+  </Body>
       </div>
     );
   }

@@ -18,7 +18,7 @@ const logoutResponse = await fetch('http://localhost:9000/auth/logout');
     console.log(parsedResponse);
     console.log(this.props,'this is props on handleClick');
     if(parsedResponse.data === 'Logout successful'){
-      this.props.history.push('/login');
+      this.props.history.push('/Welcome');
       console.log('this is something');
      }
     }
@@ -27,6 +27,14 @@ const logoutResponse = await fetch('http://localhost:9000/auth/logout');
     return(
       <div>
       <a href='/Logout' onClick={this.handleClick}>Logout</a>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
      </div>
     )
   };

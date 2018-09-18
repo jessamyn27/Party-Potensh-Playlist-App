@@ -47,8 +47,8 @@ class Weather extends Component {
       <div className = "weatherApp">
 
         <h3 className="currentTemp">
-          Right Now It Feels Like...</h3>
-        <p> {this.state.currentWeather} Farhenheit </p>
+          Feels Like...</h3>
+        <h1> {this.state.currentWeather} Farhenheit </h1>
       </div>
 
 )}

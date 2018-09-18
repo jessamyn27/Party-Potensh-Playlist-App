@@ -7,11 +7,15 @@ const Nav = () => {
   return (
       <nav className = "navBar">
         <ul>
-          <li><Link to='/profile'>My Profile</Link></li>
-          <li><Link to ='/login'>Login</Link></li>
+          <li><Link to='/'>Home</Link></li>
           <li><Link to ='/register'>Register</Link></li>
+          <li><Link to ='/login'>Login</Link></li>
           <li><Link to = '/Logout'>Logout</Link></li>
-          <li><Link to='/about'>About</Link></li>
+
+          <li><Link to='/profile'>My Profile</Link></li>
+
+          <li><Link to='/about'>Contact Us</Link></li>
+
         </ul>
       </nav>
     )

@@ -8,6 +8,12 @@ import Weather from '../ForecastContainer';
 import Map from '../DirectionsContainer';
 import SpotifyPlayer from 'react-spotify-player';
 
+import styled from 'styled-components';
+import Body from '../Body';
+import MapStyle from '../MapStyle';
+
+
+
 const spotifyUri = require('spotify-uri');
 
 class Spotify extends Component {
@@ -26,7 +32,7 @@ class Spotify extends Component {
       searchTrackName: '', // Text Input for search tracking
       searchArtistName: '', // Text Input for search tracking
       searchResults: [],
-      refresh_token: '', // refresh token used for getting new access token 
+      refresh_token: '', // refresh token used for getting new access token
 
 
     }
@@ -106,7 +112,7 @@ class Spotify extends Component {
   }
 
   componentDidMount() {
-    
+
     let parsed = queryString.parse(window.location.search);
     console.log(parsed)
     // let accessToken = parsed.access_token;
@@ -118,7 +124,7 @@ class Spotify extends Component {
   const playlistId = uriObject.id;
   console.log(playlistId)
 
-    const spotifyUser = fetch(`http://localhost:9000/spotify/party/${URI}`, {method: 'GET', credentials: 'include'}).then(response => response.json()).then((data) => { 
+    const spotifyUser = fetch(`http://localhost:9000/spotify/party/${URI}`, {method: 'GET', credentials: 'include'}).then(response => response.json()).then((data) => {
       console.log(data)
       this.setState({
         spotifyUserID: userId,
@@ -129,14 +135,14 @@ class Spotify extends Component {
         zip: data.zip,
         playlistAddID: playlistId,
         spotifyUri: URI
-        
+
       })
-    
+
     })
-    
+
     // if (!accessToken)
     //   return;
-    
+
 
   //   fetch('https://api.spotify.com/v1/me/playlists', {
   //     headers: {'Authorization': 'Bearer ' + accessToken, "Accept": "application/json","Content-Type": "application/json"
@@ -182,36 +188,68 @@ class Spotify extends Component {
     console.log(this.props.location.state)
     return (
     <div>
+
+          <h1>Spotify Party Playlist</h1>
+
+
+            <SpotifyPlayer
+        uri= {this.state.spotifyUri}
+        size={size}
+        view={view}
+        theme={theme}
+      />
+
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
+            <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler}
+            searchArtistName={this.state.searchArtistName}
+            searchResults={this.state.searchResults}
+            searchTrackName={this.state.searchTrackName}
+            searchHandler={this.searchHandler}
+             addSongHandler={this.addSongHandler}/>
+             <br></br>
+             <br></br>
+
+            <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
+      <MapStyle>
       <div className="Map">
+        <MapStyle>
       <h1>Your Party Location</h1>
       <Map />
+</MapStyle>
     </div>
+  </MapStyle>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+
     <div className="Forecast">
       <h1>Your Party Weather</h1>
       <Weather />
     </div>
-    <h1>Party Playlist</h1>
-      
-    
-      <SpotifyPlayer
-  uri= {this.state.spotifyUri}
-  size={size}
-  view={view}
-  theme={theme}
-/>
-    
+    <br></br>
+    <br></br>
+    <br></br>
 
-      <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler} 
-      searchArtistName={this.state.searchArtistName} 
-      searchResults={this.state.searchResults} 
-      searchTrackName={this.state.searchTrackName} 
-      searchHandler={this.searchHandler} 
-       addSongHandler={this.addSongHandler}/>
+    <br></br>
 
-      {/* <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
 
-      <RefreshToken refreshToken={this.refreshToken}/> */}
-
+      {/* <RefreshToken refreshToken={this.refreshToken}/> */}
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
     )
   }

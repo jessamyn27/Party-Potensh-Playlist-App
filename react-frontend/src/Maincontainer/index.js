@@ -31,12 +31,12 @@ class MainContainer extends Component {
         console.log(err)
       });
 
-      
 
-      
-      
 
-      
+
+
+
+
     }
 
     addParty = async (party, e) => {
@@ -149,10 +149,15 @@ class MainContainer extends Component {
       console.log(this.state,'this is the state for maincontainer');
       return (
         <div>
+          
            <Parties parties={this.state.parties} deleteParty={this.deleteParty}
            showModal={this.showModal}/>
            <CreateParty addParty={this.addParty}/>
           {this.state.showEdit ? <Edit closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} partyToEdit={this.state.partyToEdit}/> : null}
+          <br></br>
+          <br></br>
+          <br></br>
+
         </div>
       )
     }

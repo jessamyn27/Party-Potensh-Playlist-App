@@ -69,6 +69,14 @@ const loginResponse = await fetch('http://localhost:9000/auth/login', {
         </label>
         <input type='Submit' value='Login'/>
       </form>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
     </div>
     )
   };
