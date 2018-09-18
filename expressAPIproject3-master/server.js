@@ -6,6 +6,9 @@ const cors = require('cors');
 const session = require('express-session');
 
 
+// set up bodyParser
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 
 //DATABASE
@@ -17,6 +20,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }))
+
+
 
 //CORS
 const corsOptions = {
@@ -31,12 +36,14 @@ app.use(cors(corsOptions));
 const authController = require('./controllers/authController');
 const mainController = require('./controllers/mainController');
 const spotifyController = require('./controllers/spotifyController');
+const userController = require('./controllers/userController');
 
 
 //ROUTES
-app.use('/auth/login', authController);
+app.use('/auth', authController);
 app.use('/api/v1/main', mainController );
 app.use('/spotify', spotifyController);
+app.use('/user', userController);
 
 //PORT
 app.listen(9000, () => {

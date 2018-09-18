@@ -8,19 +8,23 @@ const Edit = (props) =>  {
       <h4> Edit </h4>
       <form onSubmit={props.closeAndEdit}>
         <label>
-          <input type="text" name="name" onChange={props.handleFormChange} value={props.profileToEdit.name}/>
+          <input type="text" name="name" onChange={props.handleFormChange} value={props.partyToEdit.name}/>
         </label>
 
         <label>
-          <input type="text" name="date" onChange={props.handleFormChange} value={props.profileToEdit.date}/>
+          <input type="date" name="date" onChange={props.handleFormChange} value={props.partyToEdit.date}/>
         </label>
 
         <label>
-          <input type="text" name="location" onChange={props.handleFormChange} value={props.profileToEdit.location}/>
+          <input type="text" name="location" onChange={props.handleFormChange} value={props.partyToEdit.location}/>
         </label>
 
         <label>
-          <input type="text" name="information" onChange={props.handleFormChange} value={props.profileToEdit.information}/>
+          <input type="text" name="zip" onChange={props.handleFormChange} value={props.partyToEdit.date}/>
+        </label>
+
+        <label>
+          <input type="text" name="information" onChange={props.handleFormChange} value={props.partyToEdit.information}/>
         </label>
 
         <input type='Submit'/>

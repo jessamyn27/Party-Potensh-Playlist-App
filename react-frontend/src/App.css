@@ -22,7 +22,134 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+
+/* NAV BAR */
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(71, 77, 108, 0.2);
+  /* background-color: #b4fff4; */
+  margin-bottom: 60px;
+}
+
+.navBar ul {
+  list-style-type: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.navBar ul a {
+  color: white;
+  font-size: 20px;
+  margin-right: 65px;
+  line-height: 100px;
+  vertical-align: middle;
+}
+
+.a {
+  text-decoration: none;
+  color: purple;
+  font-size: 50px;
+}
+
+/* .div {
+  color: green;
+  font-size: 20px;
+} */
+/* LOGIN REGISTER */
+
+.loginRegister {
+  text-align: center;
+}
+
+.loginRegisterImage {
+  display: inline;
+  height: 50vh;
+  width: 50vw;
+}
+
+label {
+  margin-right: 20px;
+}
+
+
+
+/* PARTY FORM */
+
+
+
+.partyForm {
+  display: flex;
+  width: 20vw;
+  /* background-color: pink; */
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.partyTitle {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.partyBackground {
+  width: 60%;
+  background-color: #fff5d0;
+  padding: 20px;
+  margin: 0 auto;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+
+/* ABOUT PAGE */
+
+.about {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#aboutHeader {
+  margin-bottom: 10px;
+  font-style: bold;
+}
+
+#aboutSubHeader {
+  font-style: italic;
+}
+
+#aboutForm {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#contactComment {
+  height: 50px;
+  width: 250px;
+  margin-right: 20px;
+  border: 1px solid black;
+  border-radius: 4%;
+}
+
+#contactEmail {
+    height: 50px;
+    width: 250px;
+    margin-right: 20px;
+    border: 1px solid black;
+    border-radius: 4%;
+}
+
+#contactSubmit {
+  height: 40px;
+  width: 100px;
+  margin-top: 5px;
+  border-radius: 4%;
+  background-color: lightgrey;
 }
