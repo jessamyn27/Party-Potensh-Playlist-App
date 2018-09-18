@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 
 class RefreshToken extends Component {
 
-  
+
   render () {
     return (
       <div>
         <form onSubmit={this.props.refreshToken}>
-          <input value='refresh toekn?' type='submit'/>
+          <input value='refresh token?' type='submit'/>
         </form>
       </div>
     )

@@ -45,7 +45,7 @@ class Welcome extends Component {
         <input type='submit' value='submit' />
         <br></br>
         <br></br>
-        <h4>don't have one?  <br></br>register to create your own profile and make a party playlist
+        <h4>don't have one?  <br></br><br></br>register to create your own profile and make a party playlist
         <br></br><br></br>check out one of my party playlists to get an idea! </h4>
         <a className = "a" href='http://localhost:3000/spotify?spotifyURI=spotify:user:classixxmusic:playlist:2GallY5JYoDz8PgZNbvaS2'>My Groovy Party</a>
       </form>

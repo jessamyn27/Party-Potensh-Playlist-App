@@ -77,8 +77,33 @@ label {
   margin-right: 20px;
 }
 
+form {
+  text-align: center;
+  font-style: italic;
+  font-size: 15px;
+  background: transparent;
+  color: black;
+  /* border: 2px solid palevioletred; */
+}
 
-
+input {
+  button {
+  border-radius: 10em;
+   padding: 0.25em 1em;
+   margin: 3em;
+   background: transparent;
+   color: palevioletred;
+   border: 2px solid palevioletred;
+  }
+}
+button {
+border-radius: 10em;
+ padding: 0.25em 1em;
+ margin: 3em;
+ background: transparent;
+ color: palevioletred;
+ border: 2px solid palevioletred;
+}
 /* PARTY FORM */
 
 
@@ -86,11 +111,14 @@ label {
 .partyForm {
   display: flex;
   width: 20vw;
-  /* background-color: pink; */
+  height: 20vw;
+
+  /* background-color: rgb(197, 175, 183, .8); */
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-
+  border-radius: 5%;
+  padding: 20px;
 }
 
 .partyTitle {
@@ -100,11 +128,12 @@ label {
 
 .partyBackground {
   width: 60%;
-  background-color: #fff5d0;
+  /* background-color: #D1B4B3; */
   padding: 20px;
   margin: 0 auto;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border: none;
+  background: transparent;
+
 }
 
 
@@ -113,6 +142,7 @@ label {
 .about {
   text-align: center;
   margin-top: 20px;
+  border-radius: 5%;
 }
 
 #aboutHeader {
@@ -147,9 +177,10 @@ label {
 }
 
 #contactSubmit {
-  height: 40px;
-  width: 100px;
-  margin-top: 5px;
-  border-radius: 4%;
-  background-color: lightgrey;
-}
+  /* border-radius: em; */
+   padding: 0.25em 1em;
+   /* margin: 3em; */
+   background: transparent;
+   color: black;
+   border: 2px solid palevioletred;
+ }

@@ -45,9 +45,9 @@ const registerResponse = await fetch('http://localhost:9000/auth/register', {
     return(
       <div className="loginRegister">
 
-        <div className="loginRegisterImage">
+        {/* <div className="loginRegisterImage">
                   <img style={style} src="https://images.unsplash.com/photo-1483821838526-8d9756a6e1ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f2ee5af66743fa8159bcce66cdc57428&auto=format&fit=crop&w=2768&q=80" />
-        </div>
+        </div> */}
 
       <form onSubmit={this.handleSubmit}>
         <label className="username">

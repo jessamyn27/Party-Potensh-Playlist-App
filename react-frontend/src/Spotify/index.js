@@ -201,8 +201,7 @@ class Spotify extends Component {
 
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
+
 
             <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler}
             searchArtistName={this.state.searchArtistName}
@@ -216,9 +215,7 @@ class Spotify extends Component {
             <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
             <br></br>
             <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+
 
       <MapStyle>
       <div className="Map">
@@ -230,8 +227,7 @@ class Spotify extends Component {
   </MapStyle>
   <br></br>
   <br></br>
-  <br></br>
-  <br></br>
+
 
     <div className="Forecast">
       <h1>Your Party Weather</h1>
