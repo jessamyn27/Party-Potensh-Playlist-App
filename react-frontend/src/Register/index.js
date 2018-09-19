@@ -68,6 +68,13 @@ const registerResponse = await fetch('http://localhost:9000/auth/register', {
         </label>
         <input type='Submit' value='register'/>
       </form>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
     </div>
     )
   };
