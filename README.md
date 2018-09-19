@@ -1,6 +1,7 @@
-# Project-3-React-Express-API
+# React-Express-API
        ------------------------------------------------------------------
-
+# ![](images/screenshots/party.png)
+------------------------------------------------------------------
 
 ### Party Potensh Apps
 - Our App let's a user create a party and add in the weather, google map and a playlist from Spotify, in that playlist they can search and add songs that will directly change the playlist on Spotify. Based on the party location you can see a map for directions and the weather of that zip code on the day of the party.
@@ -16,9 +17,24 @@
 
 ------------------------------------------------------------------
 
-### Wireframes
+###Screenshots
+
+# ![](images/screenshots/party.png)
+# ![](images/screenshots/party2.png)
+# ![](images/screenshots/welcome.png)
+# ![](images/screenshots/profile.png)
+# ![](images/screenshots/register.png)
+# ![](images/screenshots/about.png)
+# ![](images/screenshots/login.png)
+# ![](images/screenshots/logout.png)
+
+
+       ------------------------------------------------------------------
+### First Looks
 
 # ![](images/wireframe.png)
+# ![](images/screenshots/oldwelcome.png)
+
        ------------------------------------------------------------------
 
 ### API endpoints
@@ -36,36 +52,9 @@ For React Google Map API we fetched for google location and image
 
 ### MVP Overview
 
-While your last project taught you how to get started with writing a fullstack application in JavaScript using Express, Mongoose, and Node, this project will have you building another full stack application, but this time with a React front-end.
 
-You will build an app with three major components:
-
-1. An API of your own design, built using Node, Express, and Mongoose, that serves JSON.
+1. An API of our design, built using Node, Express, and Mongoose, that serves JSON.
 2. Front-end React code that updates the UI and makes requests to the API.
 3. Consume a third Party API
 
----
-
-### MVP Requirements
-
-
-#### Planning Requirements/ Proposals
-  - Clearly defined user stories for you MVP
-  - Wireframes
-  - Readme describing your API endpoints
-
-#### Back-End Requirements
-  - This app must contain a Node, Express, and some type of Database (MongoDB) on the backend API with at least 1 model. No associations are required.
-  - Must have Create, Read, Update, and Destroy functionality.
-
-#### Front-End Requirements
-  - This app must use a React front end that leverages the backend API in the above requirement.
-  - Must communicate with the back-end API RESTfully to Create, Read, Update, and Destroy resources, using fetch.
-  - Consume A third Party API
-
-#### Deployment
-  - Your API must be deployed to Heroku and your front-end must be deployed to Heroku or Surge.
-  - We recommend Surge as using it to deploy is [very easy](https://daveceddia.com/deploy-create-react-app-surge/)
-
-    > You MUST deploy your back-end and front-end separately. This assignment is to make a front end and separate back end using decoupled architecture. This will make it far easier to debug your deployed applications and manage your deployments. One way to get yourself in trouble in this project would be to attempt to follow a tutorial for MERN stack that is NOT decoupled.
 ---
