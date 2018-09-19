@@ -11,32 +11,29 @@ const Parties = (props) => {
  console.log('this is props for parties',props)
   partyList = props.parties.map((party, i) => {
     return (
-      <div>
-        <h3></h3>
-      <li key={party._id}>
-        <span><a href={`/spotify?spotifyURI=${party.playlistID}`} test="test"><h3>{party.name}</h3></a></span>
+      <div >
+      <div key={party._id}>
+        <a className='partylist' href={`/spotify?spotifyURI=${party.playlistID}`} test="test"><h3>{party.name}</h3></a>
         {/* <small>{party.date}</small>
         <small>{party.location}</small>
         <small>{party.zip}</small>
         <small>{party.information}</small>
         <small>{party.playlistID}</small> */}
-        <button
-          onClick={props.showModal.bind(null,party._id)}>Edit</button>
-        <button onClick={props.deleteParty.bind(null,party._id)}>Delete</button>
+        <button className='editparty'
+          onClick={props.showModal.bind(null,party._id)}>edit</button>
+        <button className='deleteparty' onClick={props.deleteParty.bind(null,party._id)}>delete</button>
 
-      </li>
+      </div>
     </div>
       )
   });
 
 }
   return (
-    <ul>
+    <div>
       {partyList}
-    </ul>
+    </div>
     )
-
-
 }
 
 

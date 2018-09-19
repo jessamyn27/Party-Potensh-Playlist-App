@@ -26,7 +26,15 @@ const logoutResponse = await fetch('http://localhost:9000/auth/logout');
     console.log(this.props, 'Logout Props?????')
     return(
       <div>
-      <a href='/Logout' onClick={this.handleClick}>Logout</a>
+        <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+        <h3>see you soon!</h3>
+        <br></br>
+        <br></br>
+        <br></br>
+      <a className='aa' href='/Logout' onClick={this.handleClick}>logout</a>
       <br></br>
       <br></br>
       <br></br>

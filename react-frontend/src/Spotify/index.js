@@ -182,14 +182,14 @@ class Spotify extends Component {
       height: 300,
     };
     const view = 'list'; // or 'coverart'
-    const theme = 'black'; // or 'white'
+    const theme = 'searchforsong'; // or 'white'
 
     console.log(this.state, 'this state')
     console.log(this.props.location.state)
     return (
     <div>
 
-          <h1>Spotify Party Playlist</h1>
+          <h4>spotify party playlist</h4>
 
 
             <SpotifyPlayer
@@ -202,8 +202,8 @@ class Spotify extends Component {
       <br></br>
       <br></br>
 
-
-            <SearchForSong access_token={this.state.access_token} textInputHandler={this.textInputHandler}
+<h4>search for song</h4>
+            <SearchForSong className='a' access_token={this.state.access_token} textInputHandler={this.textInputHandler}
             searchArtistName={this.state.searchArtistName}
             searchResults={this.state.searchResults}
             searchTrackName={this.state.searchTrackName}
@@ -212,7 +212,7 @@ class Spotify extends Component {
              <br></br>
              <br></br>
 
-            <AddToPlaylist  addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
+            <AddToPlaylist addSongHandler={this.addSongHandler} access_token={this.state.access_token} spotifyUserID={this.state.spotifyUserID} partyPlaylists={this.state.partyPlaylists} playlistAddID={this.state.playlistAddID} textInputHandler={this.textInputHandler} songAddedID={this.state.songAddedID}/>
             <br></br>
             <br></br>
 
@@ -220,17 +220,18 @@ class Spotify extends Component {
       <MapStyle>
       <div className="Map">
         <MapStyle>
-      <h1>Your Party Location</h1>
+      <h4>party map</h4>
       <Map />
 </MapStyle>
     </div>
   </MapStyle>
   <br></br>
   <br></br>
-
+  <br></br>
+  <br></br>
 
     <div className="Forecast">
-      <h1>Your Party Weather</h1>
+      <h4>party weather</h4>
       <Weather />
     </div>
     <br></br>

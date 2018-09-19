@@ -5,10 +5,10 @@ class SpotifyPlaylistSearch extends Component {
   render () {
 
     return(
-      <div>
+      <div><h4>search playlist</h4>
         <form onSubmit={this.props.playlistSearchHandler}>
-        <input type='text' name='playlistFind' placeholder='Spotify playlist Uri' value={this.props.playlistFind} onChange={this.props.textInputHandler}/>
-        <input type='submit' value='find'/>
+        <input className='aa' type='text' name='playlistFind' placeholder='Spotify playlist Uri' value={this.props.playlistFind} onChange={this.props.textInputHandler}/>
+        <input className='aa' type='submit' value='find'/>
         </form>
       </div>
     )

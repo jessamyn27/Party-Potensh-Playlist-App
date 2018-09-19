@@ -22,11 +22,11 @@ render(){
 
         return (
           <div key={index}>
-            <h3> {songName} by {artistName} </h3>
+            <h3> search {songName} by {artistName} </h3>
             <img src={image} className="spotifyImg" />
 
-            <form onSubmit={this.props.addSongHandler.bind(null,link)}>
-              <input type='submit' value='add to playlist'/>
+            <form  onSubmit={this.props.addSongHandler.bind(null,link)}>
+              <input className='a' type='submit' value='add to playlist'/>
             </form>
           </div>
         )
@@ -35,9 +35,9 @@ render(){
     return (
     <div>
        <form onSubmit={this.props.searchHandler}>
-        <input type='text' name='searchTrackName' placeholder='Search Song Name' value={this.props.searchTrackName} onChange={this.props.textInputHandler}/>
-        <input type='text' name='searchArtistName' placeholder='Search Artist' value={this.props.searchArtistName} onChange={this.props.textInputHandler}/>
-        <input type='submit' value='find'/>
+        <input className='aa' type='text' name='searchTrackName' placeholder='Search Song Name' value={this.props.searchTrackName} onChange={this.props.textInputHandler}/>
+        <input className='aa' type='text' name='searchArtistName' placeholder='Search Artist' value={this.props.searchArtistName} onChange={this.props.textInputHandler}/>
+        <input className='aa' type='submit' value='find'/>
         </form>
         {searchRender}
     </div>

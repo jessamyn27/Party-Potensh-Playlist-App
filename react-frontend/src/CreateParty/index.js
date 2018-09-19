@@ -21,7 +21,8 @@ class CreateParty extends Component {
     return(
 <div>
       <div>
-        <h1 className="partyTitle">Create Your Party Here!</h1>
+        <h2 className="partyTitle">Create Your Party Here!</h2>
+
       </div>
       <div className="partyBackground">
       <div className="partyForm">
@@ -36,15 +37,17 @@ class CreateParty extends Component {
           <input type='text' name='location' placeholder='location' onChange={this.updateParty}/>
         </label>
         <label>
-          <input type='text' name='zip' placeholder='Zip Code' onChange={this.updateParty}/>
+          <input type='text' name='zip' placeholder='zip code' onChange={this.updateParty}/>
         </label>
         <label>
-          <input type='text' name='information' placeholder='information' onChange={this.updateParty}/>
+          <input type='text' name='information' placeholder='party info' onChange={this.updateParty}/>
         </label>
         <label>
-          <input type='text' name='playlistID' placeholder='Spotify Playlist URI ' onChange={this.updateParty}/>
+          <input type='text' name='playlistID' placeholder='spotify playlist uri ' onChange={this.updateParty}/>
         </label>
-          <input type='Submit' value='Create Party'/>
+        <label>
+          <input className='createparty' type='Submit' value='create party!'/>
+</label>
       </form>
     </div>
   </div>

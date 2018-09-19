@@ -44,10 +44,18 @@ const registerResponse = await fetch('http://localhost:9000/auth/register', {
 
     return(
       <div className="loginRegister">
-
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         {/* <div className="loginRegisterImage">
                   <img style={style} src="https://images.unsplash.com/photo-1483821838526-8d9756a6e1ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f2ee5af66743fa8159bcce66cdc57428&auto=format&fit=crop&w=2768&q=80" />
         </div> */}
+        <h3>create your own profile, parties, and playlists!</h3>
+        <br></br>
+        <br></br>
+        <br></br>
+
 
       <form onSubmit={this.handleSubmit}>
         <label className="username">
@@ -58,7 +66,7 @@ const registerResponse = await fetch('http://localhost:9000/auth/register', {
           Password:
           <input type='password' name='password' placeholder='password' onChange={this.handleChange}/>
         </label>
-        <input type='Submit' value='Register'/>
+        <input type='Submit' value='register'/>
       </form>
     </div>
     )

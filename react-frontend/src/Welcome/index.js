@@ -36,19 +36,26 @@ class Welcome extends Component {
     console.log(this.state)
    return (
     <div>
-      <h1>Welcome to Party Potensh!</h1>
+      <h1 className='party' >Party Potensh!</h1>
       <br></br>
       <br></br>
-      <h3> if you have a playlist URI code enter it below</h3>
+      <h5>if you have a spotify code enter it below</h5>
       <form onSubmit={this.submitHandler}>
-        <input type='text' placeholder='Playlist URI' name='playlistUri' value={this.state.playlistUri} onChange={this.textInputHandler}/>
-        <input type='submit' value='submit' />
+        <input className='a' type='text' placeholder='playlist uri' name='playlistUri' value={this.state.playlistUri} onChange={this.textInputHandler}/>
+        <input className='a' type='submit' value='submit' />
+
         <br></br>
         <br></br>
-        <h4>don't have one?  <br></br><br></br>register to create your own profile and make a party playlist
-        <br></br><br></br>check out one of my party playlists to get an idea! </h4>
-        <a className = "a" href='http://localhost:3000/spotify?spotifyURI=spotify:user:classixxmusic:playlist:2GallY5JYoDz8PgZNbvaS2'>My Groovy Party</a>
+
       </form>
+      {/* <h5>don't have one? register to create your own party playlist</h5> */}
+      <br></br>
+      <br></br>
+      <br></br>
+        <h5>check out a party playlists below! </h5>
+        <br></br>
+        <a className = "a" href='http://localhost:3000/spotify?spotifyURI=spotify:user:classixxmusic:playlist:2GallY5JYoDz8PgZNbvaS2'>My Party</a>
+
 
     </div>
     )

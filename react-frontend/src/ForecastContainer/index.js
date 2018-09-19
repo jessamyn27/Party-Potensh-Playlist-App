@@ -46,9 +46,9 @@ class Weather extends Component {
       // console.log(this.props, ' this is the ForecastContainer')
       <div className = "weatherApp">
 
-        <h3 className="currentTemp">
-          Feels Like...</h3>
-        <h1> {this.state.currentWeather} Farhenheit </h1>
+        <h4 className="currentTemp">
+          Feels Like...</h4>
+        <h2> {this.state.currentWeather}* outside</h2>
       </div>
 
 )}
